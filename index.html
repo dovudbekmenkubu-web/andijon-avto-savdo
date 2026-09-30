@@ -1,0 +1,982 @@
+<!doctype html>
+<html lang="uz">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Andijon Avto Savdo — Chevrolet rasmiy dileri, Andijon. 13 ta model, rasmiy narxlar, Kapitalbank orqali ustamasiz bo'lib to'lash. Qo'shariq ko'chasi, 5A. Tel: +998 95 200 37 42">
+<meta name="theme-color" content="#0a0a0a">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Andijon Avto Savdo — Chevrolet rasmiy dileri">
+<meta property="og:description" content="13 ta model, rasmiy narxlar va 0% ustama bilan bo'lib to'lash. Andijon, Qo'shariq ko'chasi, 5A.">
+<meta property="og:image" content="img/salon.webp">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 38 38'%3E%3Crect width='38' height='38' rx='10' fill='%23fff'/%3E%3Cpath d='M9 28 17 10h4l8 18h-4.4l-1.7-4H15.1l-1.7 4Zm7.6-7.6h4.8L19 14.6Z' fill='%230a0a0a'/%3E%3C/svg%3E">
+<title>Andijon Avto Savdo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700&family=Golos+Text:wght@400;500;600;700&display=swap">
+<style>
+html,body{margin:0}[hidden]{display:none!important}img{max-width:100%}
+/* Layout: showroom floor. A sticky dealer bar, a hero with two phone-shot clips from the lot,
+   then the lineup as a grid of side profiles; each car opens a spec sheet. Credit and visit last. */
+:root{
+  /* "Andijon kechasi": a night showroom. Deep indigo floor, lit studio plates for the cars,
+     headlight gold as the accent, Fergana adras silk (ikat) as the local signature. One committed dark look. */
+  --bg:#0a0a0a; --surface:#141414; --surface-2:#0f0f0f;
+  --ink:#f5f5f5; --muted:#9c9c9c; --line:#262626;
+  --gold:#ffffff; --gold-soft:rgba(255,255,255,.08); --on-gold:#0a0a0a;
+  --silk:#d0406c; --teal:#2aa3a0;
+  --glass:#0b0e16; --tire:#06080d; --rim:#7d838a; --shadow:rgba(0,0,0,.5);
+  --ok:#3ddc97;
+  --c-gold:#f5c451; --c-blue:#5b9bff; --c-pink:#ff5fb4;
+  --f-display:"Jost","Golos Text","Century Gothic",system-ui,sans-serif;
+  --f-body:"Golos Text",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --r:16px;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased}
+#app[data-lang="uz"] .ru, #app[data-lang="ru"] .uz{display:none!important}
+a{color:inherit}
+h1,h2,h3{font-family:var(--f-display);line-height:1.08;text-wrap:balance;margin:0;letter-spacing:-.015em;font-weight:600}
+.wrap{max-width:1180px;margin:0 auto;padding-inline:20px}
+.eyebrow{font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--c-blue)}
+/* colour accents on the words that matter */
+.t-gold{color:var(--c-gold)} .t-blue{color:var(--c-blue)} .t-green{color:var(--ok)}
+.shine{background:linear-gradient(100deg,var(--c-gold) 0%,#fff1c2 45%,var(--c-gold) 55%,#e9a93a 100%);background-size:220% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:shine 5s linear infinite}
+@keyframes shine{from{background-position:100% 0}to{background-position:-120% 0}}
+.pink{color:var(--c-pink);font-weight:700;text-decoration:none;text-shadow:0 0 6px rgba(255,95,180,.75),0 0 18px rgba(255,95,180,.45);animation:glow 2.4s ease-in-out infinite}
+.pink:hover{color:#ff8fcb}
+@keyframes glow{0%,100%{text-shadow:0 0 6px rgba(255,95,180,.7),0 0 16px rgba(255,95,180,.35)}50%{text-shadow:0 0 10px rgba(255,95,180,1),0 0 28px rgba(255,95,180,.7),0 0 44px rgba(255,95,180,.35)}}
+.num{font-variant-numeric:tabular-nums}
+button{font:inherit;color:inherit;cursor:pointer}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:6px}
+
+/* top strip + header */
+.strip{background:#000;color:var(--muted);font-size:13px}
+.adras{height:10px;background:url(img/ikat.png) 0 50%/60px repeat-x #1b2440}
+.silk{position:relative;isolation:isolate}
+.silk::before{content:"";position:absolute;inset:0;z-index:-1;background:url(img/ikat.png) 0 0/160px;opacity:.035;filter:grayscale(1);pointer-events:none}
+.strip .wrap{display:flex;gap:18px;flex-wrap:wrap;justify-content:space-between;padding-block:7px}
+.strip span{opacity:.85}
+header.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:color-mix(in srgb,var(--bg) 78%,transparent);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.bar .wrap{display:flex;align-items:center;gap:20px;padding-block:12px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;min-width:0}
+.brand svg{flex:none}
+.brand b{font-family:var(--f-display);font-weight:600;font-size:18px;letter-spacing:.08em;line-height:1}
+.brand small{display:block;font-size:11px;color:var(--muted);letter-spacing:.08em;text-transform:uppercase;margin-top:3px}
+nav.main{display:flex;gap:22px;margin-left:auto;font-weight:500;font-size:15px}
+nav.main a{text-decoration:none;color:var(--muted)} nav.main a:hover{color:var(--ink)}
+.lang{display:flex;border:1px solid var(--line);border-radius:999px;padding:3px;flex:none}
+.lang button{border:0;background:none;padding:4px 10px;border-radius:999px;font-size:13px;font-weight:600;color:var(--muted)}
+.lang button[aria-pressed="true"]{background:var(--gold);color:var(--on-gold)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border-radius:999px;padding:12px 20px;font-weight:600;text-decoration:none;border:1px solid transparent;transition:transform .15s,background .15s}
+.btn:hover{transform:translateY(-1px)}
+.btn.gold{background:var(--gold);color:var(--on-gold)}
+.btn.line{border-color:var(--line);background:var(--surface)}
+.btn.sm{padding:8px 14px;font-size:14px}
+@media (max-width:860px){nav.main{display:none}.bar .cta{display:none}.lang{margin-left:auto}}
+
+/* hero */
+.hero{position:relative;padding-block:56px 48px;overflow:hidden;isolation:isolate}
+#trails{position:absolute;inset:0;width:100%;height:100%;z-index:-1;pointer-events:none}
+.hero::after{content:"";position:absolute;inset:auto 0 0 0;height:120px;z-index:-1;background:linear-gradient(transparent,var(--bg))}
+.hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center}
+.hero h1{font-size:clamp(36px,5.6vw,66px);font-weight:600;margin-block:14px 18px}
+.hero h1 em{font-style:normal}
+.hero p.lead{font-size:18px;color:var(--muted);max-width:34em;margin:0 0 26px}
+.hero .actions{display:flex;gap:12px;flex-wrap:wrap}
+.facts{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:36px;border-top:1px solid var(--line)}
+.facts div{padding:16px 16px 0 0}
+.facts div+div{padding-left:16px;border-left:1px solid var(--line)}
+.facts b{display:block;font-family:var(--f-display);font-size:32px;font-weight:600}
+.facts span{font-size:13px;color:var(--muted)}
+.clips{position:relative;height:520px}
+.clip{position:absolute;width:56%;aspect-ratio:9/16;border-radius:22px;overflow:hidden;background:var(--glass);box-shadow:0 24px 60px var(--shadow)}
+.clip video{width:100%;height:100%;object-fit:cover;display:block}
+.clip:nth-child(1){left:0;top:0}
+.clip:nth-child(2){right:0;bottom:0;border:4px solid var(--bg)}
+.clip{outline:1px solid var(--line)}
+.clip figcaption{position:absolute;left:12px;bottom:12px;background:rgba(0,0,0,.55);color:#fff;font-size:12px;font-weight:600;padding:5px 10px;border-radius:999px;backdrop-filter:blur(6px)}
+@media (max-width:860px){.hero .wrap{grid-template-columns:1fr}.clips{height:auto;display:grid;grid-template-columns:1fr 1fr;gap:12px}.clip{position:relative;width:100%;left:auto!important;right:auto!important;top:auto!important;bottom:auto!important}.clip:nth-child(2){border:0;margin-top:40px}}
+@media (max-width:520px){.facts{grid-template-columns:1fr}.facts div+div{border-left:0;padding-left:0;border-top:1px solid var(--line)}.facts div{padding:12px 0}}
+
+/* showroom band */
+.salon{padding-block:8px 56px}
+.salonimg{position:relative;margin:0;border-radius:22px;overflow:hidden;border:1px solid var(--line);aspect-ratio:21/9;background:#111}
+.salonimg img{width:100%;height:100%;object-fit:cover;object-position:50% 45%;display:block}
+.salonimg figcaption{position:absolute;inset:auto 0 0 0;padding:28px;display:flex;flex-direction:column;gap:8px;align-items:flex-start;background:linear-gradient(transparent,rgba(0,0,0,.82) 55%)}
+.salonimg h2{font-size:clamp(24px,3.4vw,40px)}
+.salonimg p{margin:0 0 6px;color:#d6d6d6;max-width:40em}
+@media (max-width:700px){.salonimg{aspect-ratio:4/5}.salonimg figcaption{padding:18px}}
+/* sections */
+section.block{padding-block:64px}
+.head{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-bottom:28px}
+.head h2{font-size:clamp(28px,3.8vw,44px);font-weight:600;margin-top:8px}
+.head p{color:var(--muted);margin:8px 0 0;max-width:36em}
+.chips{display:flex;gap:8px;flex-wrap:wrap}
+.chip{border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:8px 14px;font-size:14px;font-weight:500}
+.chip[aria-pressed="true"]{background:var(--gold);border-color:var(--gold);color:var(--on-gold)}
+
+/* lineup */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px}
+.car{position:relative;display:flex;flex-direction:column;text-align:left;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:18px 18px 16px;transition:border-color .2s,box-shadow .2s,transform .2s}
+.car{background:var(--surface)}
+.car:hover{border-color:var(--gold);box-shadow:0 14px 34px var(--shadow);transform:translateY(-2px)}
+.car .type{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:600}
+.car h3{font-size:24px;font-weight:600;margin-top:4px}
+.car .pic{margin-block:10px 6px;aspect-ratio:400/160;width:100%}
+.car .spec{font-size:13px;color:var(--muted)}
+.car .foot{display:flex;flex-direction:column;gap:2px;margin-top:12px;padding-top:12px;border-top:1px dashed var(--line)}
+.car .from{font-size:12px;color:var(--muted)}
+.car .price{font-family:var(--f-display);font-weight:600;font-size:19px;color:var(--c-gold)}
+.car .trims{font-size:12px;color:var(--c-blue);font-weight:600;white-space:nowrap}
+svg.silh{display:block;width:100%;height:auto;overflow:visible}
+/* studio plate: deliberately light in both themes so dealer photos (some on white) sit cleanly */
+.plate{--pa:#ffffff;--pb:#e9ebee;background:radial-gradient(120% 90% at 50% 35%,var(--pa) 55%,var(--pb));border-radius:12px;display:grid;place-items:center;overflow:hidden}
+.plate img{width:100%;height:100%;object-fit:contain;display:block;mix-blend-mode:multiply}
+.car .pic.plate{aspect-ratio:16/9;padding:6px}
+.sheet .big.plate{aspect-ratio:16/10;padding:10px}
+.sheet .big.plate.int img{object-fit:cover;mix-blend-mode:normal}
+.sheet .big.plate.int{padding:0}
+.views{display:flex;gap:6px}
+.views button{border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:6px 12px;font-size:13px;font-weight:600}
+.views button[aria-pressed="true"]{background:var(--gold);color:var(--on-gold);border-color:var(--gold)}
+
+/* price list */
+.tablebox{overflow-x:auto;background:var(--surface);border:1px solid var(--line);border-radius:var(--r)}
+table{border-collapse:collapse;width:100%;min-width:620px;font-size:15px}
+th,td{padding:12px 16px;text-align:left;border-bottom:1px solid var(--line)}
+th{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:600;background:var(--surface-2)}
+td.r,th.r{text-align:right}
+tr.grp td{font-family:var(--f-display);font-weight:700;background:var(--bg);font-size:14px;letter-spacing:.04em}
+tbody tr:last-child td{border-bottom:0}
+tr.row{cursor:pointer} tr.row:hover td{background:var(--gold-soft)}
+.note{font-size:13px;color:var(--muted);margin-top:12px}
+
+/* credit */
+.credit{display:grid;grid-template-columns:.9fr 1.1fr;gap:20px}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:24px;min-width:0}
+.panel h3{font-size:20px;font-weight:700;margin-bottom:12px}
+.panel ul{margin:0;padding-left:18px;color:var(--muted)} .panel li+li{margin-top:8px}
+.panel li b{color:var(--ink)}
+label.f{display:block;font-size:13px;font-weight:600;color:var(--muted);margin-bottom:6px}
+select{width:100%;font:inherit;padding:12px 14px;border-radius:10px;border:1px solid var(--line);background:var(--bg);color:var(--ink)}
+.opts{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-block:16px 20px}
+.opt{border:1px solid var(--line);background:var(--bg);border-radius:10px;padding:10px 6px;text-align:center}
+.opt b{display:block;font-family:var(--f-display);font-size:20px}
+.opt span{font-size:12px;color:var(--muted)}
+.opt[aria-pressed="true"]{border-color:var(--gold);background:var(--gold-soft);box-shadow:inset 0 0 0 1px var(--gold)}
+.result{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border-radius:12px;overflow:hidden}
+.result div{background:var(--surface-2);padding:14px 16px}
+.result small{display:block;font-size:12px;color:var(--muted)}
+.result b{font-size:20px}
+.result .big{grid-column:1/-1;background:#1c1c1c;color:var(--ink)}
+.result .big small{color:inherit;opacity:.7}
+.result .big b{font-family:var(--f-display);font-size:34px;color:var(--c-gold)}
+@media (max-width:860px){.credit{grid-template-columns:1fr}}
+@media (max-width:420px){.opts{grid-template-columns:repeat(2,1fr)}}
+
+/* visit */
+.visit{display:grid;grid-template-columns:1.1fr .9fr;gap:20px}
+.mapcard{position:relative;overflow:hidden;min-height:440px;touch-action:pan-y;border-radius:var(--r);border:1px solid var(--line);background:var(--surface-2)}
+.mapcard canvas{position:absolute;inset:0;width:100%;height:100%;cursor:grab}
+.mapcard canvas:active{cursor:grabbing}
+.maptag{position:absolute;left:0;top:0;pointer-events:none;display:flex;flex-direction:column;align-items:center;background:#fff;color:#0a0a0a;padding:7px 12px;border-radius:10px;box-shadow:0 10px 30px rgba(0,0,0,.6);white-space:nowrap}
+.maptag b{font-size:14px}.maptag small{font-size:11px;color:#555}
+.maptag::after{content:"";position:absolute;bottom:-5px;left:50%;width:10px;height:10px;background:#fff;transform:translateX(-50%) rotate(45deg)}
+.mapstreet{position:absolute;left:0;top:0;pointer-events:none;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.55);white-space:nowrap}
+.compass{position:absolute;right:14px;bottom:14px;width:38px;height:38px;border-radius:50%;border:1px solid var(--line);display:grid;place-items:center;background:rgba(0,0,0,.5);pointer-events:none}
+.compass i{font-style:normal;font-size:12px;font-weight:700;display:block;transform-origin:50% 50%}
+.maphint{position:absolute;left:14px;top:12px;font-size:12px;color:var(--muted);pointer-events:none}
+.compass i::before{content:"";display:block;width:0;height:0;margin:0 auto 1px;border:4px solid transparent;border-bottom:6px solid #fff;border-top:0}
+@media (max-width:600px){.mapcard{min-height:380px}.mapcard .coords{display:none}.mapcard .links{flex-wrap:nowrap}.mapcard .links .btn{padding:7px 11px;font-size:13px}.compass{top:10px;bottom:auto}}
+.mapcard .pin{position:absolute;left:50%;top:46%;transform:translate(-50%,-100%);display:flex;flex-direction:column;align-items:center}
+.mapcard .pin b{background:var(--ink);color:var(--bg);font-size:13px;padding:6px 10px;border-radius:8px;white-space:nowrap}
+.mapcard .pin i{width:14px;height:14px;background:var(--gold);border:3px solid var(--surface);border-radius:50%;margin-top:6px;box-shadow:0 0 0 6px color-mix(in srgb,var(--gold) 30%,transparent)}
+.mapcard .links{position:absolute;left:14px;bottom:14px;display:flex;gap:8px;flex-wrap:wrap}
+.coords{position:absolute;right:14px;top:12px;font-size:12px;color:var(--muted)}
+dl.contacts{margin:0;display:grid;gap:16px}
+dl.contacts dt{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:600}
+dl.contacts dd{margin:4px 0 0;font-size:18px;font-weight:600;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.copy{border:1px solid var(--line);background:var(--bg);border-radius:8px;font-size:12px;padding:4px 10px;font-weight:600;color:var(--muted)}
+@media (max-width:860px){.visit{grid-template-columns:1fr}}
+.svc{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.svc .panel{display:flex;flex-direction:column;gap:12px;align-items:flex-start}
+.svc .panel h3{margin:0;display:flex;gap:8px;align-items:center}
+.svc .txt{margin:0;color:var(--muted)}
+.svc ul.plain{list-style:none;margin:0;padding:0;display:grid;gap:8px;color:var(--muted)}
+.svc ul.plain b{color:var(--ink)}
+.svc .note{margin:0}
+@media (max-width:860px){.svc{grid-template-columns:1fr}}
+
+footer{border-top:1px solid var(--line);padding-block:28px;color:var(--muted);font-size:13px}
+footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+
+/* model sheet */
+dialog{border:0;padding:0;border-radius:20px;background:var(--surface);color:var(--ink);width:min(980px,calc(100vw - 24px));max-height:calc(100dvh - 24px);box-shadow:0 30px 80px rgba(0,0,0,.35)}
+dialog::backdrop{background:rgba(10,12,14,.55);backdrop-filter:blur(3px)}
+.sheet{display:grid;grid-template-columns:1fr 1fr;min-height:0}
+.sheet .l{background:var(--surface-2);padding:28px;display:flex;flex-direction:column;gap:16px;min-width:0}
+.sheet .r{padding:28px;min-width:0;overflow:auto;max-height:calc(100dvh - 24px)}
+.sheet h3{font-size:34px;font-weight:600}
+.x{position:absolute;right:14px;top:14px;width:38px;height:38px;border-radius:50%;border:1px solid var(--line);background:var(--surface);font-size:20px;line-height:1;z-index:2}
+.swatches{display:flex;gap:8px;flex-wrap:wrap}
+.sw{width:30px;height:30px;border-radius:50%;border:2px solid var(--surface);box-shadow:0 0 0 1px var(--line);padding:0;background-size:cover}
+.sw[aria-pressed="true"]{box-shadow:0 0 0 2px var(--gold)}
+.swname{font-size:13px;color:var(--muted);min-height:1.4em}
+.tabs{display:flex;gap:6px;flex-wrap:wrap;margin-block:6px 18px}
+.tabs button{border:1px solid var(--line);background:var(--bg);border-radius:10px;padding:8px 12px;font-size:14px;font-weight:600;text-align:left}
+.tabs button[aria-pressed="true"]{background:var(--gold);color:var(--on-gold);border-color:var(--gold)}
+.pricebox{display:flex;gap:24px;flex-wrap:wrap;padding:16px 0;border-block:1px solid var(--line);margin-bottom:18px}
+.pricebox small{display:block;font-size:12px;color:var(--muted)}
+.pricebox b{font-family:var(--f-display);font-size:26px}
+.pricebox .cash b{color:var(--ok);font-size:20px}
+.pricebox > div:first-child b{color:var(--c-gold)}
+dl.specs{display:grid;grid-template-columns:1fr 1fr;gap:10px 18px;margin:0 0 20px;padding-bottom:18px;border-bottom:1px solid var(--line)}
+dl.specs dt{font-size:12px;color:var(--muted)}
+dl.specs dd{margin:2px 0 0;font-weight:600;font-size:14px}
+ul.feat{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:8px 18px;font-size:14px}
+ul.feat li{position:relative;padding-left:16px}
+ul.feat li::before{content:"";position:absolute;left:0;top:.6em;width:7px;height:7px;border-radius:2px;background:var(--gold)}
+.sheet .acts{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}
+@media (max-width:760px){.sheet{grid-template-columns:1fr}.sheet .r{max-height:none}dialog{overflow:auto}ul.feat{grid-template-columns:1fr}.sheet h3{font-size:26px}}
+
+/* Telegram Premium animated emoji (same set as the bots) */
+.ae{display:inline-grid;place-items:center;width:1.3em;height:1.3em;vertical-align:-.28em;font-style:normal;line-height:1;flex:none}
+.ae>svg,.ae>img{width:100%!important;height:100%!important;display:block}
+.ae.lg{width:.95em;height:.95em;vertical-align:-.06em;margin-left:.08em}
+.eyebrow .ae{width:20px;height:20px;vertical-align:-5px}
+.btn .ae{width:22px;height:22px;vertical-align:0}
+.facts b .ae{width:.9em;height:.9em;margin-left:6px;vertical-align:-.08em}
+.car .pic{position:relative}
+.car .badge{position:absolute;right:6px;top:6px;z-index:1;display:inline-flex;align-items:center;gap:4px;font-size:12px;font-weight:700;background:#0a0a0a;color:#fff;padding:4px 10px 4px 6px;border-radius:999px}
+.car .badge .ae{width:22px;height:22px;vertical-align:0}
+.panel ul.ok{list-style:none;padding-left:0}
+.panel ul.ok li{display:grid;grid-template-columns:24px 1fr;gap:10px;align-items:start}
+.panel ul.ok li .ae{width:22px;height:22px;margin-top:1px}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+.maptabs{display:flex;gap:6px;margin-bottom:10px}
+.maptabs button{border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:7px 14px;font-size:13px;font-weight:600}
+.maptabs button[aria-pressed="true"]{background:#fff;color:#0a0a0a;border-color:#fff}
+.mapwrap{min-width:0}
+</style>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <linearGradient id="shine" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#fff" stop-opacity=".45"/>
+      <stop offset=".45" stop-color="#fff" stop-opacity=".06"/>
+      <stop offset="1" stop-color="#000" stop-opacity=".22"/>
+    </linearGradient>
+  </defs>
+</svg>
+
+<div id="app" data-lang="uz">
+
+<div class="strip"><div class="wrap">
+  <span><span class="uz">Chevrolet rasmiy dileri · Andijon, Qo'shariq ko'chasi, 5A</span><span class="ru">Официальный дилер Chevrolet · Андижан, ул. Кушарик, 5А</span></span>
+  <span><span class="uz">Menejer:</span><span class="ru">Менеджер:</span> <a class="pink" href="https://t.me/menedjer_Alimova" target="_blank" rel="noopener">@menedjer_Alimova</a> · <span class="num" style="color:var(--ink)">+998 95 200 37 42</span></span>
+</div></div>
+
+<header class="bar"><div class="wrap">
+  <a class="brand" href="#top" aria-label="Andijon Avto Savdo">
+    <svg width="38" height="38" viewBox="0 0 38 38" aria-hidden="true"><rect width="38" height="38" rx="10" fill="var(--gold)"/><path d="M9 28 17 10h4l8 18h-4.4l-1.7-4H15.1l-1.7 4Zm7.6-7.6h4.8L19 14.6Z" fill="var(--on-gold)"/><path d="M8 31h22" stroke="var(--on-gold)" stroke-width="1.6" stroke-dasharray="3 2.4"/></svg>
+    <span><b>ANDIJON AVTO SAVDO</b><small>Avtosavdoservis MCHJ</small></span>
+  </a>
+  <nav class="main" aria-label="Bo'limlar">
+    <a href="#modellar"><span class="uz">Modellar</span><span class="ru">Модели</span></a>
+    <a href="#narxlar"><span class="uz">Narxlar</span><span class="ru">Цены</span></a>
+    <a href="#kredit"><span class="uz">Bo'lib to'lash</span><span class="ru">Рассрочка</span></a>
+    <a href="#xizmatlar"><span class="uz">Aksiyalar</span><span class="ru">Акции</span></a>
+    <a href="#manzil"><span class="uz">Manzil</span><span class="ru">Адрес</span></a>
+  </nav>
+  <div class="lang" role="group" aria-label="Til / Язык">
+    <button id="l-uz" type="button" aria-pressed="true" data-l="uz">UZ</button>
+    <button id="l-ru" type="button" aria-pressed="false" data-l="ru">RU</button>
+  </div>
+  <a class="btn gold sm cta" href="https://t.me/menedjer_Alimova" target="_blank" rel="noopener"><i class="ae" data-e="💬" aria-hidden="true">💬</i><span class="uz">Menejerga yozish</span><span class="ru">Написать менеджеру</span></a>
+</div></header>
+
+<main id="top">
+<section class="hero"><canvas id="trails" aria-hidden="true"></canvas><div class="wrap">
+  <div>
+    <div class="eyebrow"><i class="ae" data-e="🇺🇿" aria-hidden="true">🇺🇿</i> <span class="uz">Chevrolet rasmiy dileri · Andijon</span><span class="ru">Официальный дилер Chevrolet · Андижан</span></div>
+    <h1><span class="uz">Yangi Chevrolet — <em class="shine">rasmiy dilerdan</em><i class="ae lg" data-e="✨" aria-hidden="true">✨</i>, Andijonning o'zida</span><span class="ru">Новый Chevrolet — <em class="shine">у официального дилера</em><i class="ae lg" data-e="✨" aria-hidden="true">✨</i>, прямо в Андижане</span></h1>
+    <p class="lead"><span class="uz">Damas'dan Tahoe'gacha 13 ta model, rasmiy narxlar va Kapitalbank orqali ustamasiz bo'lib to'lash. Kelib ko'ring, tanlang va shu yerning o'zida rasmiylashtiring.</span><span class="ru">13 моделей от Damas до Tahoe, официальные цены и рассрочка без переплаты через Капиталбанк. Приезжайте, выбирайте и оформляйте здесь же.</span></p>
+    <div class="actions">
+      <a class="btn gold" href="#modellar"><i class="ae" data-e="🔎" aria-hidden="true">🔎</i><span class="uz">Modellarni ko'rish</span><span class="ru">Смотреть модели</span></a>
+      <a class="btn line" href="#kredit"><i class="ae" data-e="⚡" aria-hidden="true">⚡</i><span class="uz">To'lovni hisoblash</span><span class="ru">Рассчитать платёж</span></a>
+    </div>
+    <div class="facts">
+      <div><b class="num t-gold">13<i class="ae" data-e="🔥" aria-hidden="true">🔥</i></b><span><span class="uz">model salonda</span><span class="ru">моделей в салоне</span></span></div>
+      <div><b class="num t-blue">30%<i class="ae" data-e="📊" aria-hidden="true">📊</i></b><span><span class="uz">dan boshlang'ich to'lov</span><span class="ru">первый взнос от</span></span></div>
+      <div><b class="num t-green">0%<i class="ae" data-e="💯" aria-hidden="true">💯</i></b><span><span class="uz">ustama, 54 oygacha</span><span class="ru">переплаты, до 54 мес.</span></span></div>
+    </div>
+  </div>
+  <div class="clips">
+    <figure class="clip" style="margin:0"><video src="media/tahoe.mp4" poster="media/tahoe.jpg" autoplay muted loop playsinline></video><figcaption>Tahoe High Country</figcaption></figure>
+    <figure class="clip" style="margin:0"><video src="media/andijon-2.mp4" poster="media/andijon-2.jpg" autoplay muted loop playsinline></video><figcaption>Onix</figcaption></figure>
+  </div>
+</div></section>
+
+<section class="salon" aria-label="Salon"><div class="wrap">
+  <figure class="salonimg">
+    <img src="img/salon.webp" alt="Andijon Avtosavdoservis avtosaloni" loading="lazy" decoding="async">
+    <figcaption>
+      <div class="eyebrow"><span class="uz">Bizning salon</span><span class="ru">Наш салон</span></div>
+      <h2><span class="uz">Andijon <span class="t-blue">Avtosavdoservis</span></span><span class="ru">Andijon <span class="t-blue">Avtosavdoservis</span></span></h2>
+      <p><span class="uz">Qo'shariq ko'chasi, 5A · yorug' ko'rgazma zali, barcha modellar bir joyda</span><span class="ru">ул. Кушарик, 5А · светлый шоурум, все модели в одном месте</span></p>
+      <a class="btn gold sm" href="#manzil"><span class="uz">Xaritada ko'rish</span><span class="ru">Показать на карте</span></a>
+    </figcaption>
+  </figure>
+</div></section>
+
+<section class="block" id="modellar" style="background:var(--surface-2)"><div class="wrap">
+  <div class="head">
+    <div>
+      <div class="eyebrow"><i class="ae" data-e="🎉" aria-hidden="true">🎉</i> <span class="uz">Model qatori</span><span class="ru">Модельный ряд</span></div>
+      <h2><span class="uz">Qaysi Chevrolet sizga mos?</span><span class="ru">Какой Chevrolet подходит вам?</span></h2>
+    </div>
+    <div class="chips" role="group" aria-label="Filter">
+      <button class="chip" id="c-all" type="button" data-cat="all" aria-pressed="true"><span class="uz">Hammasi</span><span class="ru">Все</span></button>
+      <button class="chip" id="c-car" type="button" data-cat="car" aria-pressed="false"><span class="uz">Yengil</span><span class="ru">Легковые</span></button>
+      <button class="chip" id="c-suv" type="button" data-cat="suv" aria-pressed="false"><span class="uz">Krossover va SUV</span><span class="ru">Кроссоверы и SUV</span></button>
+      <button class="chip" id="c-com" type="button" data-cat="com" aria-pressed="false"><span class="uz">Tijorat</span><span class="ru">Коммерческие</span></button>
+    </div>
+  </div>
+  <div class="grid" id="grid"></div>
+  <p class="note"><span class="uz">Rasmlar ma'lumot uchun. Aniq rang va jihozlanishni salonda ko'ring.</span><span class="ru">Изображения для ознакомления. Точный цвет и оснащение смотрите в салоне.</span></p>
+</div></section>
+
+<section class="block" id="narxlar"><div class="wrap">
+  <div class="head">
+    <div>
+      <div class="eyebrow"><i class="ae" data-e="📊" aria-hidden="true">📊</i> <span class="uz">Prays-list</span><span class="ru">Прайс-лист</span></div>
+      <h2><span class="uz">Barcha komplektatsiyalar narxi</span><span class="ru">Цены всех комплектаций</span></h2>
+      <p><span class="uz">Qatorni bosing — to'liq jihozlanishi ochiladi.</span><span class="ru">Нажмите на строку — откроется полная комплектация.</span></p>
+    </div>
+  </div>
+  <div class="tablebox"><table>
+    <thead><tr><th><span class="uz">Komplektatsiya</span><span class="ru">Комплектация</span></th><th class="r"><span class="uz">Narx, so'm</span><span class="ru">Цена, сум</span></th><th class="r"><span class="uz">100% to'lovda</span><span class="ru">При 100% оплате</span></th></tr></thead>
+    <tbody id="plist"></tbody>
+  </table></div>
+  <p class="note"><span class="uz">Narxlar o'zgarishi mumkin. Aniq narx va mavjudligini menejerdan so'rang.</span><span class="ru">Цены могут меняться. Точную цену и наличие уточняйте у менеджера.</span></p>
+</div></section>
+
+<section class="block" id="kredit" style="background:var(--surface-2)"><div class="wrap">
+  <div class="head">
+    <div>
+      <div class="eyebrow"><i class="ae" data-e="💯" aria-hidden="true">💯</i> Kapitalbank</div>
+      <h2><span class="uz">Bo'lib to'lash — ustamasiz</span><span class="ru">Рассрочка без переплаты</span></h2>
+      <p><span class="uz">Boshlang'ich to'lovni tanlang, qolganini teng oylik to'lovlarga bo'lamiz.</span><span class="ru">Выберите первый взнос, остаток делим на равные ежемесячные платежи.</span></p>
+    </div>
+  </div>
+  <div class="credit">
+    <div class="panel">
+      <h3><span class="uz">Shartlar</span><span class="ru">Условия</span></h3>
+      <ul class="ok">
+        <li><i class="ae" data-e="✅" aria-hidden="true">✅</i><span><span class="uz"><b>Onix va Tracker</b>: <b class="t-blue">30%</b> boshlang'ich to'lov bilan <b class="t-gold">33 oyga</b>, <b class="t-green">yillik foizsiz</b>.</span><span class="ru"><b>Onix и Tracker</b>: первый взнос <b class="t-blue">30%</b>, на <b class="t-gold">33 месяца</b>, <b class="t-green">без годовых процентов</b>.</span></span></li>
+        <li><i class="ae" data-e="✅" aria-hidden="true">✅</i><span><span class="uz">Onix va Tracker uchun <b>sug'urta to'lovlarisiz</b>.</span><span class="ru">Для Onix и Tracker <b>без страховых платежей</b>.</span></span></li>
+        <li><i class="ae" data-e="✅" aria-hidden="true">✅</i><span><span class="uz">Boshlang'ich to'lov qancha ko'p bo'lsa, muddat shuncha uzun: 54 oygacha.</span><span class="ru">Чем больше первый взнос, тем дольше срок: до 54 месяцев.</span></span></li>
+        <li><i class="ae" data-e="✅" aria-hidden="true">✅</i><span><span class="uz"><b>Damas-2 va Labo</b> ham qulay to'lov bilan, 12–26 oyga. Bu modellarda sug'urta to'lovlari bor.</span><span class="ru"><b>Damas-2 и Labo</b> тоже в рассрочку, на 12–26 месяцев. Для этих моделей есть страховые платежи.</span></span></li>
+      </ul>
+      <div class="acts" style="margin-top:22px;display:flex;gap:10px;flex-wrap:wrap">
+        <a class="btn gold sm" href="https://t.me/menedjer_Alimova" target="_blank" rel="noopener"><span class="uz">Ariza qoldirish</span><span class="ru">Оставить заявку</span></a>
+      </div>
+    </div>
+    <div class="panel">
+      <label class="f" for="cr-model"><span class="uz">Model va komplektatsiya</span><span class="ru">Модель и комплектация</span></label>
+      <select id="cr-model"></select>
+      <div class="opts" id="cr-opts" role="group" aria-label="Boshlang'ich to'lov"></div>
+      <div class="result" aria-live="polite">
+        <div class="big"><small><span class="uz">Oylik to'lov</span><span class="ru">Ежемесячный платёж</span></small><b class="num" id="cr-month">—</b></div>
+        <div><small><span class="uz">Boshlang'ich to'lov</span><span class="ru">Первый взнос</span></small><b class="num" id="cr-init">—</b></div>
+        <div><small><i class="ae" data-e="⌛" aria-hidden="true">⌛</i> <span class="uz">Muddat</span><span class="ru">Срок</span></small><b class="num" id="cr-term">—</b></div>
+        <div><small><span class="uz">Avtomobil narxi</span><span class="ru">Цена автомобиля</span></small><b class="num" id="cr-price">—</b></div>
+        <div><small><span class="uz">Ortiqcha to'lov</span><span class="ru">Переплата</span></small><b class="num" style="color:var(--ok)">0 so'm</b></div>
+      </div>
+      <p class="note"><span class="uz">Hisob Kapitalbank jadvali asosida. Yakuniy shartlarni menejer tasdiqlaydi.</span><span class="ru">Расчёт по графику Капиталбанка. Окончательные условия подтверждает менеджер.</span></p>
+    </div>
+  </div>
+</div></section>
+
+<section class="block" id="xizmatlar" style="background:var(--surface-2)"><div class="wrap">
+  <div class="head"><div>
+    <div class="eyebrow"><i class="ae" data-e="✨" aria-hidden="true">✨</i> <span class="uz">Aksiyalar va xizmatlar</span><span class="ru">Акции и услуги</span></div>
+    <h2><span class="uz">Xarid qilishdan oldin bilib oling</span><span class="ru">Что важно знать до покупки</span></h2>
+  </div></div>
+  <div class="svc">
+    <div class="panel">
+      <h3><i class="ae" data-e="💯" aria-hidden="true">💯</i> <span class="uz">100% to'lovda chegirma</span><span class="ru">Скидка при 100% оплате</span></h3>
+      <ul class="plain">
+        <li><b>Onix</b> — <span class="uz">15 000 000 so'm arzonroq</span><span class="ru">дешевле на 15 000 000 сум</span></li>
+        <li><b>Tracker</b> — <span class="uz">5 000 000 dan 22 000 000 so'mgacha</span><span class="ru">от 5 000 000 до 22 000 000 сум</span></li>
+        <li><b>Captiva</b> — <span class="uz">chegirmani menejerdan so'rang</span><span class="ru">скидку уточняйте у менеджера</span></li>
+      </ul>
+      <p class="note"><span class="uz">Har bir komplektatsiyaning 100% to'lovdagi narxi prays-listda.</span><span class="ru">Цена каждой комплектации при 100% оплате — в прайс-листе.</span></p>
+    </div>
+    <div class="panel">
+      <h3><i class="ae" data-e="⚡" aria-hidden="true">⚡</i> <span class="uz">Test-drayv</span><span class="ru">Тест-драйв</span></h3>
+      <p class="txt"><span class="uz">Avtomobilni sotib olishdan oldin rulda o'tirib ko'ring. Qaysi model test-drayv uchun tayyorligini menejer aytadi va qulay vaqtni belgilaydi.</span><span class="ru">Сядьте за руль до покупки. Менеджер подскажет, какие модели доступны для тест-драйва, и назначит удобное время.</span></p>
+      <a class="btn line sm" href="https://t.me/menedjer_Alimova" target="_blank" rel="noopener"><i class="ae" data-e="💬" aria-hidden="true">💬</i><span class="uz">Test-drayvga yozilish</span><span class="ru">Записаться на тест-драйв</span></a>
+    </div>
+    <div class="panel">
+      <h3><i class="ae" data-e="✅" aria-hidden="true">✅</i> <span class="uz">Zavod kafolati</span><span class="ru">Заводская гарантия</span></h3>
+      <p class="txt"><span class="uz">Barcha yangi avtomobillarga UzAuto Motors zavod kafolati beriladi. Muddat va shartlar rasmiy kafolat qo'llanmasida.</span><span class="ru">На все новые автомобили действует заводская гарантия UzAuto Motors. Сроки и условия — в официальном гарантийном руководстве.</span></p>
+      <a class="btn line sm" href="https://chevrolet.uz/warranty" target="_blank" rel="noopener"><span class="uz">Kafolat shartlari</span><span class="ru">Условия гарантии</span></a>
+    </div>
+  </div>
+</div></section>
+
+<section class="block" id="manzil"><div class="wrap">
+  <div class="head"><div>
+    <div class="eyebrow"><i class="ae" data-e="👋" aria-hidden="true">👋</i> <span class="uz">Salonga keling</span><span class="ru">Приезжайте в салон</span></div>
+    <h2><span class="uz">Andijon, Qo'shariq ko'chasi, 5A</span><span class="ru">Андижан, ул. Кушарик, 5А</span></h2>
+  </div></div>
+  <div class="visit">
+    <div class="mapwrap">
+    <div class="maptabs" role="group" aria-label="Xarita">
+      <button type="button" id="mt-3d" aria-pressed="true">3D</button>
+      <button type="button" id="mt-real" aria-pressed="false"><span class="uz">Haqiqiy xarita</span><span class="ru">Настоящая карта</span></button>
+    </div>
+    <iframe id="realmap" hidden title="Yandex xarita" loading="lazy" style="width:100%;height:440px;border:0;border-radius:16px;display:block" data-src="https://yandex.uz/map-widget/v1/?ll=72.342296%2C40.809346&z=17&pt=72.342296%2C40.809346%2Cpm2rdm"></iframe>
+    <div class="mapcard">
+      <canvas id="map" aria-hidden="true"></canvas>
+      <span class="coords num">40.809346° N · 72.342296° E</span>
+      <div class="maptag" id="map-tag"><b>Andijon Avto Savdo</b><small><span class="uz">Qo'shariq ko'chasi, 5A</span><span class="ru">ул. Кушарик, 5А</span></small></div>
+      <div class="mapstreet" id="map-street"><span class="uz">Qo'shariq ko'chasi</span><span class="ru">ул. Кушарик</span></div>
+      <div class="compass" aria-hidden="true"><i id="map-compass">N</i></div>
+      <span class="maphint"><span class="uz">3D sxema · aylantirish uchun suring</span><span class="ru">3D-схема · проведите, чтобы повернуть</span></span>
+      <div class="links">
+        <a class="btn line sm" href="https://yandex.uz/maps/?pt=72.342296,40.809346&amp;z=17&amp;l=map" target="_blank" rel="noopener"><span class="uz">Yandex xaritada</span><span class="ru">На Яндекс Картах</span></a>
+        <a class="btn line sm" href="https://www.google.com/maps/search/?api=1&amp;query=40.809346,72.342296" target="_blank" rel="noopener"><span class="uz">Google xaritada</span><span class="ru">На Google Картах</span></a>
+      </div>
+    </div>
+    </div>
+    <div class="panel">
+      <dl class="contacts">
+        <div><dt><span class="uz">Telefon</span><span class="ru">Телефон</span></dt><dd><a class="num" href="tel:+998952003742" style="text-decoration:none">+998 95 200 37 42</a><button class="copy" type="button" id="cp-phone" data-copy="+998952003742"><span class="uz">Nusxa olish</span><span class="ru">Копировать</span></button></dd></div>
+        <div><dt><span class="uz">Menejer</span><span class="ru">Менеджер</span></dt><dd><i class="ae" data-e="👤" aria-hidden="true">👤</i><a class="pink" href="https://t.me/menedjer_Alimova" target="_blank" rel="noopener">@menedjer_Alimova</a></dd></div>
+        <div><dt>E-mail</dt><dd>andijon-avtosavdo@umail.uz<button class="copy" type="button" id="cp-mail" data-copy="andijon-avtosavdo@umail.uz"><span class="uz">Nusxa olish</span><span class="ru">Копировать</span></button></dd></div>
+        <div><dt><span class="uz">Kompaniya</span><span class="ru">Компания</span></dt><dd style="font-size:16px">«Andijon-Avtosavdoservis» MCHJ</dd></div>
+      </dl>
+    </div>
+  </div>
+</div></section>
+</main>
+
+<footer class="silk" style="background:#000"><div class="wrap">
+  <span>© <span id="yr">2026</span> «Andijon-Avtosavdoservis» MCHJ · <span class="uz">Andijonda <i class="ae" data-e="❤" aria-hidden="true">❤</i> bilan</span><span class="ru">Сделано в Андижане с <i class="ae" data-e="❤" aria-hidden="true">❤</i></span></span>
+  <span><span class="uz">Chevrolet — General Motors kompaniyasining savdo belgisi.</span><span class="ru">Chevrolet — товарный знак компании General Motors.</span></span>
+</div></footer>
+
+<dialog id="sheet" aria-labelledby="sh-name">
+  <button class="x" type="button" id="sh-close" aria-label="Yopish">×</button>
+  <div class="sheet">
+    <div class="l">
+      <div>
+        <div class="eyebrow" id="sh-type"></div>
+        <h3 id="sh-name"></h3>
+        <div class="spec" id="sh-spec" style="color:var(--muted);font-size:14px;margin-top:6px"></div>
+      </div>
+      <div id="sh-pic"></div>
+      <div class="views" role="group" aria-label="Ko'rinish">
+        <button type="button" id="v-ext" data-v="ext" aria-pressed="true"><span class="uz">Tashqi ko'rinish</span><span class="ru">Экстерьер</span></button>
+        <button type="button" id="v-int" data-v="int" aria-pressed="false"><span class="uz">Salon</span><span class="ru">Салон</span></button>
+      </div>
+      <div>
+        <div class="swatches" id="sh-sw" role="group" aria-label="Rang"></div>
+        <div class="swname" id="sh-swname"></div>
+      </div>
+    </div>
+    <div class="r">
+      <div class="eyebrow"><span class="uz">Komplektatsiya</span><span class="ru">Комплектация</span></div>
+      <div class="tabs" id="sh-tabs"></div>
+      <div class="pricebox" id="sh-price"></div>
+      <dl class="specs" id="sh-specs"></dl>
+      <ul class="feat" id="sh-feat"></ul>
+      <div class="acts">
+        <a class="btn gold" href="https://t.me/menedjer_Alimova" target="_blank" rel="noopener"><i class="ae" data-e="💬" aria-hidden="true">💬</i><span class="uz">Menejerga yozish</span><span class="ru">Написать менеджеру</span></a>
+        <button class="btn line" type="button" id="sh-credit"><span class="uz">Bo'lib to'lashni hisoblash</span><span class="ru">Рассчитать рассрочку</span></button>
+      </div>
+    </div>
+  </div>
+</dialog>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie_light.min.js">
+(function(){
+  const b3 = document.getElementById('mt-3d'), br = document.getElementById('mt-real'), fr = document.getElementById('realmap'), card = document.querySelector('.mapcard');
+  function show(real){
+    b3.setAttribute('aria-pressed', !real); br.setAttribute('aria-pressed', real);
+    if (real && !fr.src) fr.src = fr.dataset.src;
+    fr.hidden = !real; card.hidden = real;
+    if (!real) drawMap();
+  }
+  b3.addEventListener('click', () => show(false)); br.addEventListener('click', () => show(true));
+})();
+</script>
+<script>
+const DATA = {"models":{"damas":[{"id":"d2_style_plus","name":"D2 Style Plus (DELUXE)","price":"96 932 000","full":null,"features":["Old xavfsizlik kamari mahkamlagichi","Qoraytirilgan orqa yon oyna","Radio qo'llab-quvvatlanadigan audio tizim, USB, AUX/IN","Shlangi tormoz tizimi (old disk, orqa baraban)","Dvigatel 0,8 l, F8CB karburatorli","Orqa o'rindiqlarni bosh suyanchiqlari bilan ajratadigan qatlam","3 nuqtali xavfsizlik kamari (orqa o'rindiqlar)","Zaxira g'ildirak 155R12","Kumush rangdagi g'ildirak diski 12 X 4.0, STEEL","Orqa tormoz lampasi","Old faralarni moslashtirish funksiyasi","5 pog'onali mexanik transmissiya"],"colors":["Cream","White"]}],"damas_d11":[{"id":"d11_van","name":"D11 Style (VAN)","price":"93 156 000","full":null,"features":["Old xavfsizlik kamari mahkamlagichi","Yashil soyali qoraytirilgan oynalar","Qoraytirilgan orqa old oyna","R12 g'ildirak qoplamalari","Shlangi tormoz tizimi (old disk, orqa baraban)","3 nuqtali xavfsizlik kamari (orqa o'rindiqlar)","Yon burilish signallari","Qoraytirilgan yashil rangli shisha","Kumush rangdagi g'ildirak diski 12 X 4.0, STEEL","Radio qo'llab-quvvatlanadigan audio tizim, USB, AUX/IN","Zaxira g'ildirak 155R12","Orqa tormoz lampasi"],"colors":[]}],"damas_max":[{"id":"van_1_2","name":"Van 1.2 LVO","price":"134 439 000","full":null,"features":["Barcha o'rindiqlarda balandligi sozlanuvchan bosh suyanchiqlar","Old o'rindiqlarni 4 yo'nalishda mexanik sozlash","To'liq o'lchamli shtamplangan g'ildiraklar","Isitgich","Dinamiklar (2)","Orqani ko'rish yon ko'zgularni qo'lda sozlash","Bir zonali konditsioner","Mexanik to'xtab turish tormoz","Masofadan boshqarish pult kaliti","Analog qurilmalar paneli","Stakan tutqichlari","USB va Bluetooth'li radio"],"colors":["Candy White","Twinkling Silver","Cream"]},{"id":"van_1_5","name":"Van 1.5 LVO","price":"142 471 000","full":null,"features":["Markaziy qulf","Bir zonali konditsioner","Ko'zguli quyosh nuridan himoyalovchi soyabonlar","Barcha o'rindiqlarda balandligi sozlanuvchan bosh suyanchiqlar","Analog qurilmalar paneli","To'liq o'lchamli shtamplangan g'ildiraklar","Old o'rindiqlarni 4 yo'nalishda mexanik sozlash","Immobilayzer","EBD - tormoz kuchini taqsimlash tizimi","Old galogen lampalar","Elektron barqarorlikni nazorat qilish tizimi (ESC)","Dinamiklar (2)"],"colors":[]}],"damas_move":[{"id":"pas_1_2_lv0","name":"Pas 1.2 LVO","price":"139 675 000","full":null,"features":[],"colors":[]},{"id":"pas_1_2","name":"Pas 1.2 LV1","price":"144 563 000","full":null,"features":["Old anti-tuman chiroqlari","Kuzov rangiga bo'yalgan yon oynalar","Masofadan boshqarish pult kaliti","Orqani ko'rish yon ko'zgularni qo'lda sozlash","Barcha o'rindiqlarda balandligi sozlanuvchan bosh suyanchiqlar","R14 yengil qotishmali g'ildirak disklari","To'liq o'lchamli shtamplangan g'ildiraklar","Interyer mato qoplamasi","Signalizatsiya","EBD - tormoz kuchini taqsimlash tizimi","Markaziy qulf","Old o'rindiqlarni 4 yo'nalishda mexanik sozlash"],"colors":["Candy White","Crystal Yellow","Twinkling Silver"]},{"id":"pas_1_5_lvo","name":"Pas 1.5 LVO","price":"149 011 000","full":null,"features":["O'g'rilikka qarshi tizim va immobilayzer","Dinamiklar (2)","ISOFIX bolalar o'rindig'ini mahkamlash tizimi","Isitgich","Stakan tutqichlari","Analog qurilmalar paneli","Elektron barqarorlik tizimi (ESC)","EBD - tormoz kuchini taqsimlash tizimi","Old o'rindiqlarni 4 yo'nalishda mexanik sozlash","USB va Bluetooth'li radio","To'liq o'lchamli shtamplangan g'ildiraklar","Barcha o'rindiqlarda balandligi sozlanuvchan bosh suyanchiqlar"],"colors":[]},{"id":"pas_1_5_lv1","name":"Pas 1.5 LV1","price":"154 128 000","full":null,"features":["O'g'rilikka qarshi tizim – immobilayzer","Stakan tutqichlari","EBD - tormoz kuchini taqsimlash tizimi","Kuzov rangiga bo'yalgan yon oynalar","To'liq o'lchamli shtamplangan g'ildiraklar","Haydovchi va old yo'lovchi xavfsizlik yostiqchalari","Elektron barqarorlik tizimi (ESC)","Mexanik to'xtab turish tormoz","Quyoshdan himoya qiluvchi kozirkalar (oynali)","Orqani ko'rish yon ko'zgularni qo'lda sozlash","R14 yengil qotishmali g'ildirak disklari","Yon xavfsizlik yostiqchalari"],"colors":[]}],"labo":[{"id":"lb2_plus","name":"Labo 2 Plus","price":"96 370 000","full":null,"features":["Shlangi tormoz tizimi (old disk, orqa baraban)","Yashil soyali qoraytirilgan oynalar","5 pog'onali mexanik transmissiya","Old o'rindiqlar 3 nuqtali xavfsizlik kamarlari","Yon burilish signallari","Orqa anti-tuman chiroqlari","Kumush rangdagi g'ildirak diski 12 X 4.0, STEEL","Zaxira g'ildirak 155R12","Orqa tormoz lampasi","Radioli audio tizimi","Kengaytirilgan kuzov","Radio qo'llab-quvvatlanadigan audio tizim, USB, AUX/IN"],"colors":["Some Blue","Black","Cream","Dark Blue","White"]},{"id":"lb3_plus","name":"Labo 3 Plus","price":"93 771 000","full":null,"features":[],"colors":[]}],"cobalt":[{"id":"style_mcm","name":"Cobalt Style MCM","price":"156 100 000","full":null,"features":["Kruiz nazorati","Kunduzgi yoritish uchun konnektor (DRL)","Old anti-tuman chiroqlari","Elektron sozlagichli kuzov rangidagi tashqi oynalar","Karter himoyasi","Gaz ballon uskunasiga moslashtirilgan dvigatel","O'rindiqlarni isitish","Kuchaytirilgan orqa o'rindiqlar","Ko'p funksiyali rul","Yengil quyma disklar R15","O'rindiq mato qoplamasi","Asboblar panelida xavfsizlik yostig'i o'chirgichi"],"colors":["Black Met Kettle","Burt Coconut","Darkmoon Blue Met","Red","Satin Steel Gray Met","Seeker Met","Some Kinda Blue","Son of a Gun Gray","Summit White","Switchblade Silver","Zeus"]},{"id":"midnight_mcm","name":"Cobalt Midnight MCM","price":"165 200 000","full":null,"features":[],"colors":[]}],"onix":[{"id":"ls_mt","name":"Onix LS MT","price":"176 900 000","full":"161 900 000","features":["Old o'rindiqlarni mexanik sozlash","Kuzov rangiga bo'yalgan yon oynalar","Haydovchi o'rindig'ini uzunasiga mexanik sozlash","Yo'lovchi o'rindig'ini uzunasiga mexanik sozlash","Rulni moslashtirish","Masofadan boshqariladigan qulf","Old yo'lovchi uchun xavfsizlik yostiqchasi","Bort kompyuterining monoxrom ekrani","Tezlikni cheklovchi","Signalizatsiya","ISOFIX","Bluetooth funksiyasi"],"colors":["Black Meet Kettle","Red-E","Satin Steel Grey","Seeker Met","Summit White","Switchblade Silver"]},{"id":"onix_3lt_mt","name":"Onix 3LT MT","price":"184 750 000","full":"169 750 000","features":["Haydovchi o'rindig'ini uzunasiga mexanik sozlash","Bort kompyuterining monoxrom ekrani","Rulni moslashtirish","Elektron barqarorlikni nazorat qilish tizimi (ESC)","Simsiz quvvatlagich","Bosh suyanchiqlari (oldinga 3 ta)","Kuzov rangidagi tutqichlar","Old oyna tozalagich sohasini isitish","Haydovchi o'rindig'i balandligini mexanik sozlash","Orqa salonni isitish","Orqa ko'rish kamerasi","Elektron boshqariladigan, isitiladigan tashqi yon oynalar"],"colors":[]},{"id":"ltz_at","name":"Onix LTZ Turbo AT","price":"199 899 840","full":"184 899 840","features":["Old shift tutqichlari","Dvigatelni kalitsiz ishga tushirish","Tormoz bloklanishiga qarshi tizim (ABS)","Masofadan boshqariladigan qulf","Elektron orqa oyna ko'targichlari","Bosh suyanchiqlari (oldinga 3 ta)","Old yo'lovchi yostiqchasini o'chirish funksiyasi","Orqa salonni isitish","Xromlangan radiator panjarasi","Rulni moslashtirish","Shinalardagi bosimni monitoring qilish tizimi","Isitiladigan orqa oyna"],"colors":[]},{"id":"premier_2_plus","name":"Onix Premier 2 Plus (1,2 Turbo AT)","price":"221 640 160","full":"206 640 160","features":["Rulni moslashtirish","Ikkinchi qatordagi 2/3 taxlanadigan o'rindiq","Elektron orqa oyna ko'targichlari","Bort kompyuterining monoxrom ekrani","Xromlangan radiator panjarasi","Yo'lovchi o'rindig'ini uzunasiga mexanik sozlash","Haydovchi old xavfsizlik yostiqchasi","Elektron sozlanishli tashqi yon oynalar","ISOFIX","12 voltli rozetka","Elektron boshqariladigan, isitiladigan tashqi yon oynalar","Dinamiklar (6)"],"colors":[]},{"id":"redline","name":"Onix Redline 1.2 Turbo AT","price":"230 624 800","full":"215 624 800","features":["Haydovchi o'rindig'ini mexanik sozlash","Elektron boshqariladigan, isitiladigan tashqi yon oynalar","Rulning charm qismi","Derazaning xromlangan qirralari","Yarim avtomatik to'xtash","ISOFIX","Elektron barqarorlikni nazorat qilish tizimi (ESC)","Haydovchi o'rindig'i balandligini mexanik sozlash","Xromlangan radiator panjarasi","Follow me home (faralar bir muddat yonib turadi)"],"colors":[]}],"tracker2":[{"id":"ls_plus","name":"Tracker LS Plus","price":"220 951 360","full":"215 951 360","features":["Orqa galogen chiroqlar","Rul audio boshqaruvlari","Galogen faralar","LED kunduzgi chiroqlar","Bluetooth/Hands Free","Immobilayzer","Dvigatel karteri himoyasi","Bloklanishga qarshi tizim (ABS)","Shinalardagi bosimni monitoring qilish tizimi","Orqa anti-tuman chiroqlari","Elektron oynalar (pastga/tepaga)","Tepalikka chiqishga yordam berish tizimi"],"colors":["Black Meet Kettle","Darkmoon Blue","Pow Zinga Met","Red-E","Satin Steel Grey","Summit White","Switchblade Silver"]},{"id":"ltz_plus","name":"Tracker LTZ Plus","price":"244 108 480","full":"229 108 480","features":["Radiator panjarasi (xromlangan)","Orqa galogen chiroqlari","Orqa salon yon va parda xavfsizlik yostiqchalari","Ko'r nuqta monitoringi","Elektron oynalar (pastga/tepaga)","Rul balandligini moslashtirish","Rulni moslashtirish","Rul audio boshqaruvi","Sensorli rangli ekranli audio tizim 8 dyum","Quyosh nuridan himoyalovchi oynali qopqoq","Bloklanishga qarshi tizim (ABS)","Qurilmalar panelidagi rangsiz ekran"],"colors":[]},{"id":"premier_plus","name":"Tracker Premier Plus","price":"272 656 160","full":"252 656 160","features":["Immobilayzer","Radiator panjarasi (xromlangan)","Kunduzgi LED chiroqlar","Old o'rindiqlarni isitish","Kuzov rangiga bo'yalgan yon oynalar","Quyosh nuridan himoyalovchi yoritilgan kozirok","ISOFIX","Salonga kalitsiz kirish","Rul charm qoplamasi","Bloklanishga qarshi tizim (ABS)","Qurilmalar panelidagi rangli ekran","Ikkinchi qator o'rindiqlarini isitish"],"colors":[]},{"id":"redline","name":"Tracker Redline","price":"282 474 080","full":"260 474 080","features":["Ikkinchi qator o'rindiqlarini isitish","Quyosh nuridan himoyalovchi yoritilgan kozirok","Old oyna tozalagichning isitiladigan qismi","Shinalardagi bosimni monitoring qilish tizimi","Elektron oynalar (pastga/tepaga)","Reylinglar (qora)","Qurilmalar panelidagi rangli ekran","Dvigatelni kalitsiz ishlatish (start/stop)","Old yo'lovchi uchun xavfsizlik yostiqchasi","Harorat nazorati","Qora rangga bo'yalgan yon oynalar","Rul charm qoplamasi"],"colors":[]}],"captiva5":[{"id":"lt2","name":"Captiva LT 2","price":"319 900 000","full":null,"features":["EBD - tormoz kuchini taqsimlash tizimi","7 o'rinli konfiguratsiya","Orqa to'xtash sensorlari","Orqa ko'rish kamerasi","Havo sovutgichi","Markaziy qulf","To'liq o'lchamli shtamplangan g'ildiraklar","Rul audio boshqaruvi","Interyer perforatsiyali sun'iy charm qoplamasi","Old o'rindiqlarni mexanik sozlash","6 ta xavfsizlik yostiqchasi","ISOFIX"],"colors":[]},{"id":"premier","name":"Captiva Premier","price":"349 900 000","full":null,"features":["Interyer perforatsiyali sun'iy charm qoplamasi","Markaziy qulf","Kunduzgi LED chiroqlar","Harorat nazorati","Elektron barqarorlikni nazorat qilish tizimi (ESC)","ISOFIX","Old to'xtash sensorlari","Old LED chiroqlar","Rul audio boshqaruvlari","Masofadan boshqariladigan markaziy qulflash","Orqa panelda qo'shimcha USB port","Salonga kalitsiz kirish"],"colors":["Aurora Silver","Polar White","Star Twinkle Black","Tuungsten Grey"]}],"equinox":[{"id":"activ_80","name":"PHEV Activ 80 km","price":"463 500 000","full":null,"features":["Ikkita 11 dyumli ekran: raqamli asboblar paneli va sensorli multimedia","360° aylana ko'rinish kamerasi","Avtomatik favqulodda tormozlash (AEB)","Yo'l belgilarini tanish (TSR)","Tasmada ushlab turish (LKA) va tasma almashtirishda yordam (LCA)","Stop & Go funksiyali moslashuvchan kruiz nazorati","Panoramali lyuk","Old o'rindiqlarni isitish va ventilyatsiya","Simsiz Apple CarPlay va simsiz quvvatlash","Salonda 25 ta saqlash joyi"],"colors":[]},{"id":"activ_120","name":"PHEV Activ 120 km","price":"478 500 000","full":null,"features":["Ikkita 11 dyumli ekran: raqamli asboblar paneli va sensorli multimedia","360° aylana ko'rinish kamerasi","Avtomatik favqulodda tormozlash (AEB)","Yo'l belgilarini tanish (TSR)","Tasmada ushlab turish (LKA) va tasma almashtirishda yordam (LCA)","Stop & Go funksiyali moslashuvchan kruiz nazorati","Panoramali lyuk","Old o'rindiqlarni isitish va ventilyatsiya","Simsiz Apple CarPlay va simsiz quvvatlash","Salonda 25 ta saqlash joyi"],"colors":[]}],"traverse":[{"id":"z71","name":"Traverse Z71","price":"795 000 000","full":null,"features":["Yo'lovchi o'rindig'ini 4 tomonlama mexanik sozlash","Simsiz quvvatlagich","7 o'rinli konfiguratsiya (2-qator «kapitan» o'rindiqlar)","Yorug'lik sensori","7 ta xavfsizlik yostiqchasi","Haydash rejimi tugmasi","Yukxona eshigini elektron ochish","Elektron barqarorlik tizimi (ESC)","Stop/Start tizimi (o'chirish funksiyasi bilan)","Rangli audio ekran 17,7 dyum","Orqa qo'l osti suyanchig'i","ABS - bloklanishga qarshi tormoz tizimi"],"colors":["Summit White","Mosaic Black Metallic","Radiant Red Tintcoat","Sterling Gray Metallic","Sandstone Gray","Lakeshore Blue Metallic"]}],"tahoe":[{"id":"high_country","name":"Tahoe High Country","price":"1 464 500 000","full":null,"features":["Orqa qo'l osti suyanchig'i","Dvigatelni pastdan himoya qilish","Orqa ko'rish oynasiga video uzatish","Orqa yo'lovchilar uchun 2 ekranli tizim 12,6 dyum","Faralar burchagini avtomatik moslashtirish","Panoramali lyuk","Dvigatelni kalitsiz ishga tushirish","Qurilmalar paneli rangli ekrani 11 dyum","Tepalikka chiqishga yordam berish tizimi","Shinalardagi bosimni monitoring qilish","Yig'iluvchi oyoq qo'ygichlar","Yorug'lik sensori"],"colors":["Iridescent Pearl Tricoat","Dark Ash Metallic","Black","Radiant Red Tintcoat","Sterling Gray Metallic","Lakeshore Blue Metallic"]}],"suburban":[{"id":"high_country","name":"Suburban High Country","price":"1 485 100 000","full":null,"features":["LED faralar","Moslashuvchan kruiz nazorati","Premium audio tizim (Bose)","Rulni teleskopik va balandligini elektron sozlash","Rangli audio ekran (17,7 dyum)","Yomg'ir sensori","Avtoturargohdan orqaga chiqish yordamchisi","Old va orqa to'xtash sensorlari","Isitiladigan rul","Reylinglar","Old o'rindiq bel tayanchini 4 yo'nalishda elektron sozlash","Rul charm qoplamasi"],"colors":["Iridescent Pearl Tricoat","Dark Ash Metallic","Black","Radiant Red Tintcoat","Sterling Gray Metallic","Lakeshore Blue Metallic"]}]},"credit":[["ONIX",[["Onix LS MT","176 900 000",[[30,33,"53 070 000","3 752 424"],[40,41,"70 760 000","2 588 780"],[45,46,"79 605 000","2 115 109"],[50,54,"88 450 000","1 637 963"]]],["Onix 3 LT","184 750 000",[[30,33,"55 425 000","3 918 939"],[40,41,"73 900 000","2 703 659"],[45,46,"83 137 500","2 208 967"],[50,54,"92 375 000","1 710 648"]]],["Onix LTZ","199 899 840",[[30,33,"59 969 952","4 240 300"],[40,41,"79 959 936","2 925 364"],[45,46,"89 954 928","2 390 107"],[50,54,"99 949 920","1 850 924"]]],["Onix PREMIER","221 640 160",[[30,33,"66 492 048","4 701 458"],[40,41,"88 656 064","3 243 515"],[45,46,"99 738 072","2 650 045"],[50,54,"110 820 080","2 052 224"]]],["Onix REDLINE","230 624 800",[[30,33,"69 187 440","4 892 041"],[40,41,"92 249 920","3 374 997"],[45,46,"103 781 160","2 757 470"],[50,54,"115 312 400","2 135 415"]]]]],["TRACKER-2",[["TRACKER-2 LS PLUS","220 951 360",[[30,33,"66 285 408","4 686 847"],[40,41,"88 380 544","3 233 435"],[45,46,"99 428 112","2 641 810"],[50,54,"110 475 680","2 045 846"]]],["TRACKER-2 LTZ PLUS","244 108 480",[[30,33,"73 232 544","5 178 059"],[40,41,"97 643 392","3 572 319"],[45,46,"109 848 816","2 918 688"],[50,54,"122 054 240","2 260 264"]]],["TRACKER-2 Premier PLUS","272 656 160",[[30,33,"81 796 848","5 783 616"],[40,41,"109 062 464","3 990 090"],[45,46,"122 695 272","3 260 019"],[50,54,"136 328 080","2 524 594"]]],["TRACKER-2 REDLINE","282 474 080",[[30,33,"84 742 224","5 991 874"],[40,41,"112 989 632","4 133 767"],[45,46,"127 113 336","3 377 407"],[50,54,"141 237 040","2 615 501"]]]]],["DAMAS-2",[["DAMAS-2","96 932 000",[[25,12,"24 233 000","6 058 250"],[30,15,"29 079 600","4 523 493"],[40,19,"38 772 800","3 061 011"],[50,26,"48 466 000","1 864 077"]]]]],["LABO-2",[["LABO-2","96 370 000",[[25,10,"24 092 500","7 227 750"],[30,12,"28 911 000","5 621 583"],[40,15,"38 548 000","3 854 800"],[50,22,"48 185 000","2 409 250"]]]]]],"ru":{"Old xavfsizlik kamari mahkamlagichi":"Крепление ремней безопасности спереди","Qoraytirilgan orqa yon oyna":"Тонированное заднее боковое стекло","Radio qo'llab-quvvatlanadigan audio tizim, USB, AUX/IN":"Аудиосистема с радио, USB, AUX/IN","Shlangi tormoz tizimi (old disk, orqa baraban)":"Гидравлические тормоза (диск спереди, барабан сзади)","Dvigatel 0,8 l, F8CB karburatorli":"Двигатель 0,8 л, F8CB, карбюраторный","Orqa o'rindiqlarni bosh suyanchiqlari bilan ajratadigan qatlam":"Перегородка задних сидений с подголовниками","3 nuqtali xavfsizlik kamari (orqa o'rindiqlar)":"3-точечные ремни безопасности (задние сиденья)","Zaxira g'ildirak 155R12":"Запасное колесо 155R12","Kumush rangdagi g'ildirak diski 12 X 4.0, STEEL":"Серебристые колёсные диски 12 X 4.0, сталь","Orqa tormoz lampasi":"Задний стоп-сигнал","Old faralarni moslashtirish funksiyasi":"Регулировка передних фар","5 pog'onali mexanik transmissiya":"5-ступенчатая механическая коробка","Yashil soyali qoraytirilgan oynalar":"Зеленоватая тонировка стёкол","Qoraytirilgan orqa old oyna":"Тонированное заднее переднее стекло","R12 g'ildirak qoplamalari":"Колпаки колёс R12","Yon burilish signallari":"Боковые повторители поворотов","Qoraytirilgan yashil rangli shisha":"Тонированное стекло зелёного оттенка","Barcha o'rindiqlarda balandligi sozlanuvchan bosh suyanchiqlar":"Регулируемые по высоте подголовники на всех сиденьях","Old o'rindiqlarni 4 yo'nalishda mexanik sozlash":"Механическая регулировка передних сидений в 4 направлениях","To'liq o'lchamli shtamplangan g'ildiraklar":"Полноразмерные штампованные колёса","Isitgich":"Отопитель","Dinamiklar (2)":"Динамики (2)","Orqani ko'rish yon ko'zgularni qo'lda sozlash":"Ручная регулировка боковых зеркал","Bir zonali konditsioner":"Однозонный кондиционер","Mexanik to'xtab turish tormoz":"Механический стояночный тормоз","Masofadan boshqarish pult kaliti":"Ключ с пультом ДУ","Analog qurilmalar paneli":"Аналоговая приборная панель","Stakan tutqichlari":"Подстаканники","USB va Bluetooth'li radio":"Радио с USB и Bluetooth","Markaziy qulf":"Центральный замок","Ko'zguli quyosh nuridan himoyalovchi soyabonlar":"Солнцезащитные козырьки с зеркалом","Immobilayzer":"Иммобилайзер","EBD - tormoz kuchini taqsimlash tizimi":"EBD — распределение тормозных усилий","Old galogen lampalar":"Передние галогеновые фары","Elektron barqarorlikni nazorat qilish tizimi (ESC)":"Система курсовой устойчивости (ESC)","Old anti-tuman chiroqlari":"Передние противотуманные фары","Kuzov rangiga bo'yalgan yon oynalar":"Боковые зеркала в цвет кузова","R14 yengil qotishmali g'ildirak disklari":"Легкосплавные диски R14","Interyer mato qoplamasi":"Тканевая обивка салона","Signalizatsiya":"Сигнализация","O'g'rilikka qarshi tizim va immobilayzer":"Противоугонная система и иммобилайзер","ISOFIX bolalar o'rindig'ini mahkamlash tizimi":"Крепления детских кресел ISOFIX","Elektron barqarorlik tizimi (ESC)":"Система курсовой устойчивости (ESC)","O'g'rilikka qarshi tizim – immobilayzer":"Противоугонная система — иммобилайзер","Haydovchi va old yo'lovchi xavfsizlik yostiqchalari":"Подушки безопасности водителя и переднего пассажира","Quyoshdan himoya qiluvchi kozirkalar (oynali)":"Солнцезащитные козырьки (с зеркалом)","Yon xavfsizlik yostiqchalari":"Боковые подушки безопасности","Old o'rindiqlar 3 nuqtali xavfsizlik kamarlari":"3-точечные ремни на передних сиденьях","Orqa anti-tuman chiroqlari":"Задние противотуманные фонари","Radioli audio tizimi":"Аудиосистема с радио","Kengaytirilgan kuzov":"Удлинённый кузов","Kruiz nazorati":"Круиз-контроль","Kunduzgi yoritish uchun konnektor (DRL)":"Разъём для дневных ходовых огней (DRL)","Elektron sozlagichli kuzov rangidagi tashqi oynalar":"Электрорегулируемые зеркала в цвет кузова","Karter himoyasi":"Защита картера","Gaz ballon uskunasiga moslashtirilgan dvigatel":"Двигатель, адаптированный под ГБО","O'rindiqlarni isitish":"Подогрев сидений","Kuchaytirilgan orqa o'rindiqlar":"Усиленные задние сиденья","Ko'p funksiyali rul":"Мультифункциональный руль","Yengil quyma disklar R15":"Легкосплавные диски R15","O'rindiq mato qoplamasi":"Тканевая обивка сидений","Asboblar panelida xavfsizlik yostig'i o'chirgichi":"Отключение подушки безопасности на панели","Old o'rindiqlarni mexanik sozlash":"Механическая регулировка передних сидений","Haydovchi o'rindig'ini uzunasiga mexanik sozlash":"Продольная механическая регулировка сиденья водителя","Yo'lovchi o'rindig'ini uzunasiga mexanik sozlash":"Продольная механическая регулировка сиденья пассажира","Rulni moslashtirish":"Регулировка руля","Masofadan boshqariladigan qulf":"Дистанционный замок","Old yo'lovchi uchun xavfsizlik yostiqchasi":"Подушка безопасности переднего пассажира","Bort kompyuterining monoxrom ekrani":"Монохромный экран бортового компьютера","Tezlikni cheklovchi":"Ограничитель скорости","ISOFIX":"ISOFIX","Bluetooth funksiyasi":"Bluetooth","Simsiz quvvatlagich":"Беспроводная зарядка","Bosh suyanchiqlari (oldinga 3 ta)":"Подголовники (3 спереди)","Kuzov rangidagi tutqichlar":"Ручки в цвет кузова","Old oyna tozalagich sohasini isitish":"Подогрев зоны стеклоочистителей","Haydovchi o'rindig'i balandligini mexanik sozlash":"Механическая регулировка высоты сиденья водителя","Orqa salonni isitish":"Обогрев заднего салона","Orqa ko'rish kamerasi":"Камера заднего вида","Elektron boshqariladigan, isitiladigan tashqi yon oynalar":"Зеркала с электрорегулировкой и подогревом","Old shift tutqichlari":"Передние потолочные ручки","Dvigatelni kalitsiz ishga tushirish":"Запуск двигателя без ключа","Tormoz bloklanishiga qarshi tizim (ABS)":"Антиблокировочная система (ABS)","Elektron orqa oyna ko'targichlari":"Электростеклоподъёмники задних дверей","Old yo'lovchi yostiqchasini o'chirish funksiyasi":"Отключение подушки переднего пассажира","Xromlangan radiator panjarasi":"Хромированная решётка радиатора","Shinalardagi bosimni monitoring qilish tizimi":"Контроль давления в шинах","Isitiladigan orqa oyna":"Обогрев заднего стекла","Ikkinchi qatordagi 2/3 taxlanadigan o'rindiq":"Складное сиденье второго ряда 2/3","Haydovchi old xavfsizlik yostiqchasi":"Фронтальная подушка безопасности водителя","Elektron sozlanishli tashqi yon oynalar":"Электрорегулировка боковых зеркал","12 voltli rozetka":"Розетка 12 В","Dinamiklar (6)":"Динамики (6)","Haydovchi o'rindig'ini mexanik sozlash":"Механическая регулировка сиденья водителя","Rulning charm qismi":"Кожаная отделка руля","Derazaning xromlangan qirralari":"Хромированные молдинги окон","Yarim avtomatik to'xtash":"Полуавтоматическая парковка","Follow me home (faralar bir muddat yonib turadi)":"Follow me home (фары горят ещё некоторое время)","Orqa galogen chiroqlar":"Задние галогеновые фонари","Rul audio boshqaruvlari":"Управление аудио на руле","Galogen faralar":"Галогеновые фары","LED kunduzgi chiroqlar":"Светодиодные дневные огни","Bluetooth/Hands Free":"Bluetooth/Hands Free","Dvigatel karteri himoyasi":"Защита картера двигателя","Bloklanishga qarshi tizim (ABS)":"Антиблокировочная система (ABS)","Elektron oynalar (pastga/tepaga)":"Электростеклоподъёмники","Tepalikka chiqishga yordam berish tizimi":"Помощь при старте на подъёме","Radiator panjarasi (xromlangan)":"Решётка радиатора (хром)","Orqa galogen chiroqlari":"Задние галогеновые фонари","Orqa salon yon va parda xavfsizlik yostiqchalari":"Задние боковые и шторки безопасности","Ko'r nuqta monitoringi":"Мониторинг слепых зон","Rul balandligini moslashtirish":"Регулировка руля по высоте","Rul audio boshqaruvi":"Управление аудио на руле","Sensorli rangli ekranli audio tizim 8 dyum":"Сенсорная цветная аудиосистема 8 дюймов","Quyosh nuridan himoyalovchi oynali qopqoq":"Солнцезащитный козырёк с зеркалом","Qurilmalar panelidagi rangsiz ekran":"Монохромный экран приборной панели","Kunduzgi LED chiroqlar":"Светодиодные дневные огни","Old o'rindiqlarni isitish":"Подогрев передних сидений","Quyosh nuridan himoyalovchi yoritilgan kozirok":"Солнцезащитный козырёк с подсветкой","Salonga kalitsiz kirish":"Бесключевой доступ в салон","Rul charm qoplamasi":"Кожаная оплётка руля","Qurilmalar panelidagi rangli ekran":"Цветной экран приборной панели","Ikkinchi qator o'rindiqlarini isitish":"Подогрев сидений второго ряда","Old oyna tozalagichning isitiladigan qismi":"Обогрев зоны стеклоочистителей","Reylinglar (qora)":"Рейлинги (чёрные)","Dvigatelni kalitsiz ishlatish (start/stop)":"Бесключевой запуск (start/stop)","Harorat nazorati":"Климат-контроль","Qora rangga bo'yalgan yon oynalar":"Боковые зеркала чёрного цвета","7 o'rinli konfiguratsiya":"7-местная конфигурация","Orqa to'xtash sensorlari":"Задние парктроники","Havo sovutgichi":"Кондиционер","Interyer perforatsiyali sun'iy charm qoplamasi":"Перфорированная обивка из экокожи","6 ta xavfsizlik yostiqchasi":"6 подушек безопасности","Old to'xtash sensorlari":"Передние парктроники","Old LED chiroqlar":"Передние светодиодные фары","Masofadan boshqariladigan markaziy qulflash":"Центральный замок с ДУ","Orqa panelda qo'shimcha USB port":"Дополнительный USB сзади","Yo'lovchi o'rindig'ini 4 tomonlama mexanik sozlash":"Механическая регулировка сиденья пассажира в 4 направлениях","7 o'rinli konfiguratsiya (2-qator «kapitan» o'rindiqlar)":"7-местная конфигурация (капитанские кресла во 2-м ряду)","Yorug'lik sensori":"Датчик света","7 ta xavfsizlik yostiqchasi":"7 подушек безопасности","Haydash rejimi tugmasi":"Кнопка режимов движения","Yukxona eshigini elektron ochish":"Электропривод двери багажника","Stop/Start tizimi (o'chirish funksiyasi bilan)":"Система Stop/Start (с отключением)","Rangli audio ekran 17,7 dyum":"Цветной экран аудиосистемы 17,7 дюйма","Orqa qo'l osti suyanchig'i":"Задний подлокотник","ABS - bloklanishga qarshi tormoz tizimi":"ABS — антиблокировочная система","Dvigatelni pastdan himoya qilish":"Защита днища двигателя","Orqa ko'rish oynasiga video uzatish":"Видео в зеркале заднего вида","Orqa yo'lovchilar uchun 2 ekranli tizim 12,6 dyum":"2 экрана для задних пассажиров 12,6 дюйма","Faralar burchagini avtomatik moslashtirish":"Автокорректор фар","Panoramali lyuk":"Панорамный люк","Qurilmalar paneli rangli ekrani 11 dyum":"Цветная приборная панель 11 дюймов","Shinalardagi bosimni monitoring qilish":"Контроль давления в шинах","Yig'iluvchi oyoq qo'ygichlar":"Выдвижные подножки","LED faralar":"Светодиодные фары","Moslashuvchan kruiz nazorati":"Адаптивный круиз-контроль","Premium audio tizim (Bose)":"Премиальная аудиосистема (Bose)","Rulni teleskopik va balandligini elektron sozlash":"Электрорегулировка руля по вылету и высоте","Rangli audio ekran (17,7 dyum)":"Цветной экран аудиосистемы (17,7 дюйма)","Yomg'ir sensori":"Датчик дождя","Avtoturargohdan orqaga chiqish yordamchisi":"Помощь при выезде задним ходом","Old va orqa to'xtash sensorlari":"Передние и задние парктроники","Isitiladigan rul":"Подогрев руля","Reylinglar":"Рейлинги","Old o'rindiq bel tayanchini 4 yo'nalishda elektron sozlash":"Электрорегулировка поясничной поддержки в 4 направлениях","Ikkita 11 dyumli ekran: raqamli asboblar paneli va sensorli multimedia":"Два 11-дюймовых экрана: цифровая приборная панель и сенсорная мультимедиа","360° aylana ko'rinish kamerasi":"Камера кругового обзора 360°","Avtomatik favqulodda tormozlash (AEB)":"Автоматическое экстренное торможение (AEB)","Yo'l belgilarini tanish (TSR)":"Распознавание дорожных знаков (TSR)","Tasmada ushlab turish (LKA) va tasma almashtirishda yordam (LCA)":"Удержание в полосе (LKA) и помощь при перестроении (LCA)","Stop & Go funksiyali moslashuvchan kruiz nazorati":"Адаптивный круиз-контроль с функцией Stop & Go","Old o'rindiqlarni isitish va ventilyatsiya":"Подогрев и вентиляция передних сидений","Simsiz Apple CarPlay va simsiz quvvatlash":"Беспроводной Apple CarPlay и беспроводная зарядка","Salonda 25 ta saqlash joyi":"25 мест для хранения в салоне"}};
+const PH = {"damas": [{"ext": "img/damas/d2_style_plus/ext.webp", "int": "img/damas/d2_style_plus/int.webp", "colors": [{"n": "cream", "src": "img/damas/d2_style_plus/c-cream.webp"}, {"n": "white", "src": "img/damas/d2_style_plus/c-white.webp"}]}], "damas_d11": [{"ext": "img/damas/d11_van/ext.webp", "int": "img/damas/d11_van/int.webp", "colors": []}], "damas_max": [{"ext": "img/damas_max/van_1_2/ext.webp", "int": "img/damas_max/van_1_2/int.webp", "colors": [{"n": "Candy white", "src": "img/damas_max/van_1_2/c-candy-white.webp"}, {"n": "Twinkling silver", "src": "img/damas_max/van_1_2/c-twinkling-silver.webp"}, {"n": "cream", "src": "img/damas_max/van_1_2/c-cream.webp"}]}, {"ext": "img/damas_max/van_1_5/ext.webp", "int": "img/damas_max/van_1_5/int.webp", "colors": []}], "damas_move": [{"ext": "img/damas_move/pas_1_2/ext.webp", "int": "img/damas_move/pas_1_2/int.webp", "colors": []}, {"ext": "img/damas_move/pas_1_2/ext.webp", "int": "img/damas_move/pas_1_2/int.webp", "colors": [{"n": "Candy white", "src": "img/damas_move/pas_1_2/c-candy-white.webp"}, {"n": "Crystal yellow", "src": "img/damas_move/pas_1_2/c-crystal-yellow.webp"}, {"n": "Twinkling silver", "src": "img/damas_move/pas_1_2/c-twinkling-silver.webp"}]}, {"ext": "img/damas_move/pas_1_5_lvo/ext.webp", "int": "img/damas_move/pas_1_5_lvo/int.webp", "colors": []}, {"ext": "img/damas_move/pas_1_5_lv1/ext.webp", "int": "img/damas_move/pas_1_5_lv1/int.webp", "colors": []}], "labo": [{"ext": "img/labo/lb2_plus/ext.webp", "int": "img/labo/lb2_plus/int.webp", "colors": [{"n": "Some Blue", "src": "img/labo/lb2_plus/c-some-blue.webp"}, {"n": "black", "src": "img/labo/lb2_plus/c-black.webp"}, {"n": "cream", "src": "img/labo/lb2_plus/c-cream.webp"}, {"n": "dark blue", "src": "img/labo/lb2_plus/c-dark-blue.webp"}, {"n": "white", "src": "img/labo/lb2_plus/c-white.webp"}]}, {"ext": "img/labo/lb3_plus/ext.webp", "int": "img/labo/lb3_plus/int.webp", "colors": []}], "cobalt": [{"ext": "img/cobalt/style_mcm/ext.webp", "int": "img/cobalt/style_mcm/int.webp", "colors": [{"n": "Black Met Kettle", "src": "img/cobalt/style_mcm/c-black-met-kettle.webp"}, {"n": "Burt Coconut", "src": "img/cobalt/style_mcm/c-burt-coconut.webp"}, {"n": "Darkmoon Blue Met", "src": "img/cobalt/style_mcm/c-darkmoon-blue-met.webp"}, {"n": "Red", "src": "img/cobalt/style_mcm/c-red.webp"}, {"n": "Satin Steel Gray Met", "src": "img/cobalt/style_mcm/c-satin-steel-gray-met.webp"}, {"n": "Seeker Met", "src": "img/cobalt/style_mcm/c-seeker-met.webp"}, {"n": "Some Kinda Blue", "src": "img/cobalt/style_mcm/c-some-kinda-blue.webp"}, {"n": "Son of a Gun Gray", "src": "img/cobalt/style_mcm/c-son-of-a-gun-gray.webp"}, {"n": "Summit White", "src": "img/cobalt/style_mcm/c-summit-white.webp"}, {"n": "Switchblade Silver", "src": "img/cobalt/style_mcm/c-switchblade-silver.webp"}, {"n": "Zeus", "src": "img/cobalt/style_mcm/c-zeus.webp"}]}, {"ext": "img/cobalt/midnight_mcm/ext.webp", "int": "img/cobalt/midnight_mcm/int.webp", "colors": []}], "onix": [{"ext": "img/onix/ls_mt/ext.webp", "int": "img/onix/ls_mt/int.webp", "colors": [{"n": "Black Meet Kettle", "src": "img/onix/ls_mt/c-black-meet-kettle.webp"}, {"n": "Red E", "src": "img/onix/ls_mt/c-red-e.webp"}, {"n": "Satin Steel Grey", "src": "img/onix/ls_mt/c-satin-steel-grey.webp"}, {"n": "Seeker Met", "src": "img/onix/ls_mt/c-seeker-met.webp"}, {"n": "Summit White", "src": "img/onix/ls_mt/c-summit-white.webp"}, {"n": "Switchblade Silver", "src": "img/onix/ls_mt/c-switchblade-silver.webp"}]}, {"ext": "img/onix/onix_3lt_mt/ext.webp", "int": "img/onix/onix_3lt_mt/int.webp", "colors": []}, {"ext": "img/onix/ltz_at/ext.webp", "int": "img/onix/ltz_at/int.webp", "colors": []}, {"ext": "img/onix/premier_2_plus/ext.webp", "int": "img/onix/premier_2_plus/int.webp", "colors": []}, {"ext": "img/onix/redline/ext.webp", "int": "img/onix/redline/int.webp", "colors": []}], "tracker2": [{"ext": "img/tracker2/ls_plus/ext.webp", "int": "img/tracker2/ls_plus/int.webp", "colors": [{"n": "Black Meet Kettle", "src": "img/tracker2/ls_plus/c-black-meet-kettle.webp"}, {"n": "Darkmoon Blue", "src": "img/tracker2/ls_plus/c-darkmoon-blue.webp"}, {"n": "Pow Zinga Met", "src": "img/tracker2/ls_plus/c-pow-zinga-met.webp"}, {"n": "Red E", "src": "img/tracker2/ls_plus/c-red-e.webp"}, {"n": "Satin Steel Grey", "src": "img/tracker2/ls_plus/c-satin-steel-grey.webp"}, {"n": "Summit White", "src": "img/tracker2/ls_plus/c-summit-white.webp"}, {"n": "Switchblade Silver", "src": "img/tracker2/ls_plus/c-switchblade-silver.webp"}]}, {"ext": "img/tracker2/ltz_plus/ext.webp", "int": "img/tracker2/ltz_plus/int.webp", "colors": []}, {"ext": "img/tracker2/premier_plus/ext.webp", "int": "img/tracker2/premier_plus/int.webp", "colors": []}, {"ext": "img/tracker2/redline/ext.webp", "int": "img/tracker2/redline/int.webp", "colors": []}], "captiva5": [{"ext": "img/captiva5/lt2/ext.webp", "int": "img/captiva5/lt2/int.webp", "colors": []}, {"ext": "img/captiva5/premier/ext.webp", "int": "img/captiva5/premier/int.webp", "colors": [{"n": "Aurora Silver", "src": "img/captiva5/premier/c-aurora-silver.webp"}, {"n": "Polar white", "src": "img/captiva5/premier/c-polar-white.webp"}, {"n": "Star Twinkle Black", "src": "img/captiva5/premier/c-star-twinkle-black.webp"}, {"n": "Tuungsten Grey", "src": "img/captiva5/premier/c-tuungsten-grey.webp"}]}], "traverse": [{"ext": "img/traverse/z71/ext.webp", "int": "img/traverse/z71/int.webp", "colors": [{"n": "Lakeshore Blue Metallic", "src": "img/traverse/z71/c-lakeshore-blue-metallic.webp"}, {"n": "Mosaic Black Metallic", "src": "img/traverse/z71/c-mosaic-black-metallic.webp"}, {"n": "Radiant Red Tintcoat", "src": "img/traverse/z71/c-radiant-red-tintcoat.webp"}, {"n": "Sandstone Gray", "src": "img/traverse/z71/c-sandstone-gray.webp"}, {"n": "Sterling Gray Metallic", "src": "img/traverse/z71/c-sterling-gray-metallic.webp"}, {"n": "Summit White", "src": "img/traverse/z71/c-summit-white.webp"}]}], "tahoe": [{"ext": "img/tahoe/high_country/ext.webp", "int": "img/tahoe/high_country/int.webp", "colors": [{"n": "Black", "src": "img/tahoe/high_country/c-black.webp"}, {"n": "Dark Ash Metallic", "src": "img/tahoe/high_country/c-dark-ash-metallic.webp"}, {"n": "Iridescent Pearl Tricoat", "src": "img/tahoe/high_country/c-iridescent-pearl-tricoat.webp"}, {"n": "Lakeshore Blue Metallic", "src": "img/tahoe/high_country/c-lakeshore-blue-metallic.webp"}, {"n": "Radiant Red Tintcoat", "src": "img/tahoe/high_country/c-radiant-red-tintcoat.webp"}, {"n": "Sterling Gray Metallic", "src": "img/tahoe/high_country/c-sterling-gray-metallic.webp"}]}], "suburban": [{"ext": "img/suburban/high_country/ext.webp", "int": "img/suburban/high_country/int.webp", "colors": [{"n": "Black", "src": "img/suburban/high_country/c-black.webp"}, {"n": "Dark Ash Metallic", "src": "img/suburban/high_country/c-dark-ash-metallic.webp"}, {"n": "Iridescent Pearl Tricoat", "src": "img/suburban/high_country/c-iridescent-pearl-tricoat.webp"}, {"n": "Lakeshore Blue Metallic", "src": "img/suburban/high_country/c-lakeshore-blue-metallic.webp"}, {"n": "Radiant Red Tintcoat", "src": "img/suburban/high_country/c-radiant-red-tintcoat.webp"}, {"n": "Sterling Gray Metallic", "src": "img/suburban/high_country/c-sterling-gray-metallic.webp"}]}], "equinox": [{"ext": null, "int": null, "colors": []}, {"ext": null, "int": null, "colors": []}]};
+const EMO = {"🇺🇿": "emo/5222404546575219535.webp", "✨": "emo/5211057719720561874.json", "⚡": "emo/5176998281170911817.json", "🔎": "emo/5188311512791393083.json", "💯": "emo/5188208446461188962.json", "📊": "emo/5177256464539976338.json", "🔥": "emo/5402406965252989103.json", "✅": "emo/4956672355876209142.webp", "⌛": "emo/5177076827532821064.json", "👋": "emo/5215248074498128418.json", "👤": "emo/5373012449597335010.json", "💬": "emo/5443038326535759644.json", "❤": "emo/5345961113479572537.webp", "🎉": "emo/5461151367559141950.json"};
+const REDUCED = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const ae = (e, cls='') => `<i class="ae${cls ? ' ' + cls : ''}" data-e="${e}" aria-hidden="true">${e}</i>`;
+const _lottieCache = {};
+function lottieData(src){
+  return _lottieCache[src] || (_lottieCache[src] = fetch(src).then(r => r.arrayBuffer()).then(async buf => {
+    const b = new Uint8Array(buf);
+    if (b[0] === 0x1f && b[1] === 0x8b) {
+      const ds = new Response(new Blob([buf]).stream().pipeThrough(new DecompressionStream('gzip')));
+      return JSON.parse(await ds.text());
+    }
+    return JSON.parse(new TextDecoder().decode(b));
+  }));
+}
+const _io = 'IntersectionObserver' in window ? new IntersectionObserver(es => es.forEach(e => {
+  const a = e.target._anim; if (!a || REDUCED) return; e.isIntersecting ? a.play() : a.pause();
+})) : null;
+function hydrate(root){
+  (root || document).querySelectorAll('i.ae:not([data-done])').forEach(el => {
+    const src = EMO[el.dataset.e]; el.dataset.done = '1';
+    if (!src) return;
+    if (/\.webp$/.test(src)) { el.innerHTML = `<img src="${src}" alt="">`; return; }
+    if (!window.lottie || !window.DecompressionStream) return;   // plain emoji stays as fallback
+    lottieData(src).then(data => {
+      el.textContent = '';
+      const a = lottie.loadAnimation({container: el, renderer: 'svg', loop: true, autoplay: !REDUCED, animationData: data});
+      if (REDUCED) a.goToAndStop(Math.floor((data.op || 60) * .5), true);
+      el._anim = a; if (_io) _io.observe(el);
+    }).catch(() => {});
+  });
+}
+const $ = s => document.querySelector(s);
+const app = $('#app');
+let LANG = 'uz';
+try { const l = localStorage.getItem('aas-lang'); if (l === 'ru' || l === 'uz') LANG = l; } catch (e) {}
+
+const T = {
+  uz: {from:"dan", trims:n=>n+" ta komplektatsiya", ask:"Narxni menejerdan so'rang", cash:"100% to'lovda", price:"Narx", som:"so'm", mo:"oy", noCredit:"Bu model uchun jadval menejerda", hp:"o.k."},
+  ru: {from:"от", trims:n=>n+(n===1?" комплектация":n<5?" комплектации":" комплектаций"), ask:"Цену уточняйте у менеджера", cash:"При 100% оплате", price:"Цена", som:"сум", mo:"мес.", noCredit:"График для этой модели — у менеджера", hp:"л.с."}
+};
+
+// Model meta: name, category, body shape, spec line
+const META = {
+  damas:      {name:"Damas 2",    cat:"com", shape:"micro", type:{uz:"Miniven",ru:"Минивэн"}, spec:["0.8 l","38","5MT"]},
+  damas_d11:  {name:"Damas D11 Van", cat:"com", shape:"van", type:{uz:"Furgon",ru:"Фургон"}, spec:["0.8 l","38","5MT"]},
+  damas_move: {name:"Damas Move", cat:"com", shape:"micro", type:{uz:"Yo'lovchi miniveni",ru:"Пассажирский минивэн"}, spec:["1.2 / 1.5 l","81 / 103","MT-5 / MT-6"]},
+  damas_max:  {name:"Damas Max",  cat:"com", shape:"van",   type:{uz:"Furgon",ru:"Фургон"}, spec:["1.2 / 1.5 l","81 / 103","MT-5 / MT-6"]},
+  labo:       {name:"Labo",       cat:"com", shape:"pickup",type:{uz:"Yuk avtomobili",ru:"Мини-грузовик"}, spec:["0.8 l","38","5MT"]},
+  cobalt:     {name:"Cobalt",     cat:"car", shape:"sedan", type:{uz:"Sedan",ru:"Седан"}, spec:["1.5 l","106","5MT / 6AT"]},
+  onix:       {name:"Onix",       cat:"car", shape:"sedan", type:{uz:"Sedan",ru:"Седан"}, spec:["1.2 Turbo","132","5MT / 6AT"]},
+  tracker2:   {name:"Tracker 2",  cat:"suv", shape:"cross", type:{uz:"Krossover",ru:"Кроссовер"}, spec:["1.2 Turbo","132","6AT"]},
+  captiva5:   {name:"Captiva 5",  cat:"suv", shape:"cross", type:{uz:"Krossover, 7 o'rin",ru:"Кроссовер, 7 мест"}, spec:["1.5 Turbo","149","CVT"]},
+  equinox:    {name:"Equinox PHEV", cat:"suv", shape:"cross", type:{uz:"Plagin-gibrid krossover",ru:"Подключаемый гибрид"}, spec:["1.5 Turbo + elektr","369","DHT"]},
+  traverse:   {name:"Traverse",   cat:"suv", shape:"suv",   type:{uz:"SUV, 7 o'rin",ru:"SUV, 7 мест"}, spec:["2.5 Turbo","328","AT-8"]},
+  tahoe:      {name:"Tahoe",      cat:"suv", shape:"suv",   type:{uz:"To'liq o'lchamli SUV",ru:"Полноразмерный SUV"}, spec:["6.2 l","420","10AT"]},
+  suburban:   {name:"Suburban",   cat:"suv", shape:"suv",   type:{uz:"To'liq o'lchamli SUV",ru:"Полноразмерный SUV"}, spec:["6.2 l","420","10AT"]},
+};
+const BADGE = {
+  tahoe:[ "🔥", {uz:"Premium", ru:"Премиум"} ], suburban:[ "🔥", {uz:"Premium", ru:"Премиум"} ], traverse:[ "🔥", {uz:"7 o'rin", ru:"7 мест"} ],
+  equinox:[ "⚡", {uz:"Gibrid", ru:"Гибрид"} ],
+  onix:[ "💯", {uz:"0% ustama", ru:"0% переплаты"} ], tracker2:[ "💯", {uz:"0% ustama", ru:"0% переплаты"} ]
+};
+const SPECS = {
+  equinox: [
+    [{uz:"Dvigatel",ru:"Двигатель"}, {uz:"1.5 Turbo benzin + elektr motor (P1+P3)",ru:"1.5 Turbo бензин + электромотор (P1+P3)"}],
+    [{uz:"Umumiy quvvat",ru:"Общая мощность"}, {uz:"369 o.k. (272 kVt)",ru:"369 л.с. (272 кВт)"}],
+    [{uz:"Burovchi moment",ru:"Крутящий момент"}, "565 N·m"],
+    [{uz:"Batareya",ru:"Батарея"}, {uz:"17 / 24 kVt·soat, LFP",ru:"17 / 24 кВт·ч, LFP"}],
+    [{uz:"Elektrda yurish",ru:"Запас на электричестве"}, {uz:"80 / 120 km (WLTC)",ru:"80 / 120 км (WLTC)"}],
+    [{uz:"Umumiy yurish zaxirasi",ru:"Общий запас хода"}, {uz:"1000+ km",ru:"1000+ км"}],
+    [{uz:"0–100 km/soat",ru:"0–100 км/ч"}, {uz:"7,0 s",ru:"7,0 с"}],
+    [{uz:"Maks. tezlik",ru:"Макс. скорость"}, {uz:"180 km/soat",ru:"180 км/ч"}],
+    [{uz:"Yoqilg'i sarfi",ru:"Расход топлива"}, {uz:"1,03 l/100 km (zaryad bilan) · 6,13 l/100 km",ru:"1,03 л/100 км (с зарядом) · 6,13 л/100 км"}],
+    [{uz:"O'lchamlari",ru:"Габариты"}, {uz:"4653 × 1902 × 1728 mm",ru:"4653 × 1902 × 1728 мм"}],
+    [{uz:"G'ildirak bazasi",ru:"Колёсная база"}, {uz:"2730 mm",ru:"2730 мм"}],
+    [{uz:"Yukxona",ru:"Багажник"}, {uz:"648 / 1619 l",ru:"648 / 1619 л"}],
+  ],
+  labo: [
+    [{uz:"Maks. tezlik",ru:"Макс. скорость"}, {uz:"100 km/soat",ru:"100 км/ч"}],
+    [{uz:"Yoqilg'i sarfi",ru:"Расход топлива"}, {uz:"7,8 l/100 km",ru:"7,8 л/100 км"}],
+  ],
+};
+const loc = v => typeof v === 'string' ? v : v[LANG];
+const ORDER = ["onix","cobalt","tracker2","captiva5","equinox","traverse","tahoe","suburban","damas","damas_d11","damas_move","damas_max","labo"];
+
+const COLORS = {
+  "cream":"#e6d9b9","white":"#f3f3f1","candy white":"#f3f3f1","summit white":"#f3f3f1","polar white":"#f5f5f3",
+  "twinkling silver":"#b8bcc1","switchblade silver":"#b8bcc1","aurora silver":"#c1c4c8","crystal yellow":"#e6c24a",
+  "some blue":"#3f6fae","some kinda blue":"#3f6fae","black":"#1c1e21","black met kettle":"#1c1e21","black meet kettle":"#1c1e21",
+  "star twinkle black":"#1c1e21","mosaic black metallic":"#1c1e21","dark blue":"#1f2c48","darkmoon blue met":"#1f2c48","darkmoon blue":"#1f2c48",
+  "burt coconut":"#7a5a3d","red":"#b1222c","red-e":"#b1222c","radiant red tintcoat":"#8c1720","satin steel gray met":"#6c7177",
+  "satin steel grey":"#6c7177","seeker met":"#57615a","son of a gun gray":"#595c60","pow zinga met":"#c9672f","tuungsten grey":"#7b7f84",
+  "sterling gray metallic":"#8b8e92","sandstone gray":"#9a9282","lakeshore blue metallic":"#3c5d7a","iridescent pearl tricoat":"#ebe8e0",
+  "dark ash metallic":"#4a4d51","zeus":"#8a6d4b","dark ash metallic":"#4a4d51","candy white":"#f3f3f1","crystal yellow":"#e6c24a"
+};
+const colorHex = n => { const k = (n||"").toLowerCase().trim(); return COLORS[k] || COLORS[k.replace(/ (met|metallic|tintcoat|tricoat)$/,'')] || (Object.keys(COLORS).find(c => k.startsWith(c)) ? COLORS[Object.keys(COLORS).find(c => k.startsWith(c))] : "#8b8e92"); };
+const photo = (src, alt, cls='') => `<img src="${src}" alt="${alt}" loading="lazy" decoding="async">`;
+
+// Side-profile silhouettes (viewBox 400x160, ground at y=156)
+const SHAPES = {
+  sedan:{body:"M20,118 C20,104 30,98 52,95 L118,88 C140,70 165,58 200,56 L250,56 C275,57 295,72 315,88 L360,94 C375,97 382,106 382,118 L382,126 C382,130 378,132 372,132 L340,132 A30,30 0 0 0 280,132 L130,132 A30,30 0 0 0 70,132 L28,132 C22,132 20,128 20,124 Z",
+    glass:["M128,90 C148,74 168,64 200,63 L205,63 L205,90 Z","M213,63 L248,63 C268,64 285,76 300,90 L213,90 Z"], wheels:[100,310], r:24, lamp:[32,104], tail:[378,104]},
+  cross:{body:"M18,112 C18,98 28,90 50,87 L110,80 C128,58 148,46 185,44 L290,44 C315,45 330,60 342,80 L368,86 C380,90 384,100 384,112 L384,124 C384,129 380,132 374,132 L344,132 A32,32 0 0 0 280,132 L134,132 A32,32 0 0 0 70,132 L26,132 C20,132 18,128 18,122 Z",
+    glass:["M122,82 C138,62 155,52 185,51 L205,51 L205,82 Z","M213,51 L262,51 L262,82 L213,82 Z","M270,51 L290,51 C308,52 320,64 330,82 L270,82 Z"], wheels:[102,312], r:25, lamp:[30,97], tail:[380,98]},
+  suv:{body:"M14,108 C14,94 22,86 40,84 L92,78 C104,56 116,40 150,38 L350,38 C366,38 374,50 378,70 L384,90 C387,98 388,106 388,114 L388,124 C388,129 384,132 378,132 L352,132 A32,32 0 0 0 288,132 L124,132 A32,32 0 0 0 60,132 L22,132 C16,132 14,128 14,122 Z",
+    glass:["M104,80 C114,60 124,46 150,45 L180,45 L180,80 Z","M188,45 L260,45 L260,80 L188,80 Z","M268,45 L352,45 C362,45 366,56 368,70 L370,80 L268,80 Z"], wheels:[92,320], r:25, lamp:[26,94], tail:[385,96]},
+  micro:{body:"M60,120 C60,108 64,100 72,96 L92,60 C98,44 108,34 128,32 L330,32 C342,32 348,40 348,52 L350,122 C350,128 346,132 340,132 L318,132 A28,28 0 0 0 262,132 L146,132 A28,28 0 0 0 90,132 L66,132 C62,132 60,128 60,124 Z",
+    glass:["M96,74 L108,48 C112,42 118,40 128,40 L170,40 L170,74 Z","M178,40 L250,40 L250,74 L178,74 Z","M258,40 L336,40 C340,40 340,44 340,48 L340,74 L258,74 Z"], wheels:[118,290], r:22, lamp:[68,108], tail:[347,100]},
+  van:{body:"M60,120 C60,108 64,100 72,96 L92,60 C98,44 108,34 128,32 L330,32 C342,32 348,40 348,52 L350,122 C350,128 346,132 340,132 L318,132 A28,28 0 0 0 262,132 L146,132 A28,28 0 0 0 90,132 L66,132 C62,132 60,128 60,124 Z",
+    glass:["M96,74 L108,48 C112,42 118,40 128,40 L170,40 L170,74 Z"], wheels:[118,290], r:22, lamp:[68,108], tail:[347,100]},
+  pickup:{body:"M60,120 C60,108 64,100 72,96 L92,60 C98,44 108,34 128,32 L180,32 C188,32 192,38 192,46 L192,86 L348,86 C352,86 354,88 354,92 L354,124 C354,129 350,132 344,132 L318,132 A28,28 0 0 0 262,132 L146,132 A28,28 0 0 0 90,132 L66,132 C62,132 60,128 60,124 Z",
+    glass:["M96,74 L108,48 C112,42 118,40 128,40 L182,40 L182,74 Z"], wheels:[118,290], r:22, lamp:[68,108], tail:[351,100], bed:true},
+};
+function silhouette(shape, color, label){
+  const s = SHAPES[shape];
+  const wheels = s.wheels.map(cx => `<circle cx="${cx}" cy="132" r="${s.r}" fill="var(--tire)"/><circle cx="${cx}" cy="132" r="${s.r*.55}" fill="var(--rim)"/><circle cx="${cx}" cy="132" r="${s.r*.18}" fill="var(--tire)"/>`).join("");
+  const glass = s.glass.map(d => `<path d="${d}" fill="var(--glass)" opacity=".92"/>`).join("");
+  const bed = s.bed ? `<path d="M200,92 L346,92" stroke="#000" stroke-opacity=".25" stroke-width="2"/><path d="M196,88 L196,128" stroke="#000" stroke-opacity=".2" stroke-width="2"/>` : "";
+  const lamp = `<rect x="${s.lamp[0]-7}" y="${s.lamp[1]-4}" width="14" height="7" rx="3" fill="#fff4d6" opacity=".9"/><rect x="${s.tail[0]-3}" y="${s.tail[1]-5}" width="5" height="10" rx="2" fill="#c8242e"/>`;
+  return `<svg class="silh" viewBox="0 0 400 160" role="img" aria-label="${label}">
+    <ellipse cx="200" cy="152" rx="176" ry="6" fill="#000" opacity=".14"/>
+    <path d="${s.body}" fill="${color}" stroke="#000" stroke-opacity=".18" stroke-width="1.2"/>
+    <path d="${s.body}" fill="url(#shine)"/>
+    ${glass}${bed}${lamp}${wheels}</svg>`;
+}
+
+const toInt = s => s ? parseInt(String(s).replace(/\D/g,''),10) : null;
+const fmt = n => n == null ? "—" : n.toLocaleString('ru-RU').replace(/,/g,' ');
+function minPrice(key){ const p = DATA.models[key].map(t => toInt(t.price)).filter(Boolean); return p.length ? Math.min(...p) : null; }
+const featText = f => LANG === 'ru' ? (DATA.ru[f] || f) : f;
+
+/* ---- lineup ---- */
+let CAT = 'all';
+function renderGrid(){
+  const g = $('#grid');
+  g.innerHTML = ORDER.filter(k => CAT === 'all' || META[k].cat === CAT).map(k => {
+    const m = META[k], trims = DATA.models[k], col = colorHex(trims[0].colors[0]);
+    const mp = minPrice(k);
+    const badge = BADGE[k] ? `<span class="badge">${ae(BADGE[k][0])}${BADGE[k][1][LANG]}</span>` : '';
+    return `<button class="car" type="button" data-model="${k}" id="car-${k}">
+      <span class="type">${m.type[LANG]}</span>
+      <h3>${m.name}</h3>
+      <div class="pic${PH[k][0].ext ? ' plate' : ''}">${badge}${PH[k][0].ext ? photo(PH[k][0].ext, m.name) : silhouette(m.shape, col, m.name)}</div>
+      <span class="spec">${m.spec[0]} · ${m.spec[1]} ${T[LANG].hp} · ${m.spec[2]}</span>
+      <span class="foot"><span class="price num">${LANG==='uz' ? `${fmt(mp)} so'mdan` : `от ${fmt(mp)} сум`}</span>
+      <span class="trims">${T[LANG].trims(trims.length)}</span></span>
+    </button>`;
+  }).join("");
+}
+document.querySelectorAll('.chip').forEach(b => b.addEventListener('click', () => {
+  CAT = b.dataset.cat;
+  document.querySelectorAll('.chip').forEach(c => c.setAttribute('aria-pressed', c === b));
+  renderGrid(); hydrate($('#grid'));
+}));
+$('#grid').addEventListener('click', e => { const c = e.target.closest('.car'); if (c) openSheet(c.dataset.model, 0); });
+
+/* ---- price list ---- */
+function renderPrices(){
+  $('#plist').innerHTML = ORDER.map(k => {
+    const rows = DATA.models[k].map((t,i) => `<tr class="row" tabindex="0" data-model="${k}" data-trim="${i}">
+      <td>${t.name}</td>
+      <td class="r num">${t.price ? fmt(toInt(t.price)) : `<span style="color:var(--muted)">${T[LANG].ask}</span>`}</td>
+      <td class="r num" style="color:var(--ok)">${t.full ? fmt(toInt(t.full)) : '—'}</td></tr>`).join("");
+    return `<tr class="grp"><td colspan="3">${META[k].name}</td></tr>` + rows;
+  }).join("");
+}
+$('#plist').addEventListener('click', e => { const r = e.target.closest('tr.row'); if (r) openSheet(r.dataset.model, +r.dataset.trim); });
+$('#plist').addEventListener('keydown', e => { const r = e.target.closest('tr.row'); if (r && (e.key==='Enter'||e.key===' ')) { e.preventDefault(); openSheet(r.dataset.model, +r.dataset.trim); } });
+
+/* ---- model sheet ---- */
+const dlg = $('#sheet');
+let S = {model:null, trim:0, color:-1, view:'ext'};
+function modelColors(model, trim){
+  const own = PH[model][trim].colors;
+  if (own.length) return own;
+  const i = PH[model].findIndex(x => x.colors.length);
+  return i >= 0 ? PH[model][i].colors : [];
+}
+function openSheet(model, trim){
+  S = {model, trim, color:-1, view:'ext'};
+  drawSheet();
+  if (!dlg.open) { try { dlg.showModal(); } catch(e) { dlg.setAttribute('open',''); } }
+}
+function drawSheet(){
+  const m = META[S.model], trims = DATA.models[S.model], t = trims[S.trim];
+  $('#sh-type').textContent = m.type[LANG];
+  $('#sh-name').textContent = m.name;
+  $('#sh-spec').textContent = `${m.spec[0]} · ${m.spec[1]} ${T[LANG].hp} · ${m.spec[2]}`;
+  const ph = PH[S.model][S.trim], cols = modelColors(S.model, S.trim);
+  if (S.color >= cols.length) S.color = -1;
+  let src = ph.ext;
+  if (S.view === 'int' && ph.int) src = ph.int;
+  else if (S.color >= 0) src = cols[S.color].src;
+  $('#sh-pic').innerHTML = src ? `<div class="big plate${S.view==='int' ? ' int' : ''}">${photo(src, m.name + ' ' + t.name)}</div>` : silhouette(m.shape, colorHex(cols[0] && cols[0].n), m.name);
+  document.querySelectorAll('.views button').forEach(b => b.setAttribute('aria-pressed', b.dataset.v === S.view));
+  $('#v-int').hidden = !ph.int;
+  $('#sh-sw').innerHTML = cols.map((c,i) => `<button class="sw" type="button" title="${c.n}" aria-label="${c.n}" aria-pressed="${i===S.color && S.view==='ext'}" data-i="${i}" style="background:${colorHex(c.n)}"></button>`).join("");
+  $('#sh-swname').textContent = S.view==='ext' && S.color >= 0 ? cols[S.color].n : (cols.length ? (LANG==='uz' ? `${cols.length} ta rang — tanlang` : `${cols.length} цветов — выберите`) : '');
+  $('#sh-tabs').innerHTML = trims.map((x,i) => `<button type="button" aria-pressed="${i===S.trim}" data-i="${i}">${x.name}</button>`).join("");
+  $('#sh-price').innerHTML = t.price
+    ? `<div><small>${T[LANG].price}</small><b class="num">${fmt(toInt(t.price))} ${T[LANG].som}</b></div>` + (t.full ? `<div class="cash"><small>${T[LANG].cash}</small><b class="num">${fmt(toInt(t.full))} ${T[LANG].som}</b></div>` : '')
+    : `<div><small>${T[LANG].price}</small><b style="font-size:18px">${T[LANG].ask}</b></div>`;
+  const sp = SPECS[S.model];
+  $('#sh-specs').hidden = !sp;
+  $('#sh-specs').innerHTML = sp ? sp.map(([k,v]) => `<div><dt>${loc(k)}</dt><dd>${loc(v)}</dd></div>`).join('') : '';
+  $('#sh-feat').innerHTML = t.features.length ? t.features.map(f => `<li>${featText(f)}</li>`).join("")
+    : `<li>${LANG==='uz' ? "Jihozlanish ro'yxatini menejerdan so'rang" : "Список оснащения уточняйте у менеджера"}</li>`;
+  $('#sh-credit').hidden = !creditIndexFor(S.model, t.name);
+}
+$('#sh-sw').addEventListener('click', e => { const b = e.target.closest('.sw'); if (b) { S.color = +b.dataset.i; S.view = 'ext'; drawSheet(); } });
+$('#sh-tabs').addEventListener('click', e => { const b = e.target.closest('button'); if (b) { S.trim = +b.dataset.i; S.color = -1; drawSheet(); } });
+document.querySelectorAll('.views button').forEach(b => b.addEventListener('click', () => { S.view = b.dataset.v; drawSheet(); }));
+$('#sh-close').addEventListener('click', () => dlg.close());
+dlg.addEventListener('click', e => { if (e.target === dlg) dlg.close(); });
+$('#sh-credit').addEventListener('click', () => {
+  const idx = creditIndexFor(S.model, DATA.models[S.model][S.trim].name);
+  dlg.close();
+  if (idx) { $('#cr-model').value = idx; CR.opt = 0; drawCredit(); }
+  $('#kredit').scrollIntoView({behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth'});
+});
+
+/* ---- credit calculator ---- */
+const CREDIT = [];  // flat list: {group, name, price, opts}
+DATA.credit.forEach(([group, models]) => models.forEach(([name, price, opts]) => CREDIT.push({group, name, price:toInt(price), opts})));
+const CR = {opt:0};
+function creditIndexFor(model, trimName){
+  const grp = {onix:"ONIX", tracker2:"TRACKER-2", damas:"DAMAS-2", labo:"LABO-2"}[model];
+  if (!grp) return null;
+  const price = toInt((DATA.models[model].find(t => t.name === trimName) || {}).price);
+  const i = CREDIT.findIndex(c => c.group === grp && c.price === price);
+  return i >= 0 ? String(i) : null;
+}
+function fillCreditSelect(){
+  const sel = $('#cr-model'), keep = sel.value || '0';
+  let html = '', last = '';
+  CREDIT.forEach((c,i) => {
+    if (c.group !== last) { if (last) html += '</optgroup>'; html += `<optgroup label="${c.group}">`; last = c.group; }
+    html += `<option value="${i}">${c.name} — ${fmt(c.price)} ${T[LANG].som}</option>`;
+  });
+  sel.innerHTML = html + '</optgroup>';
+  sel.value = keep;
+}
+function drawCredit(){
+  const c = CREDIT[+$('#cr-model').value || 0];
+  if (CR.opt >= c.opts.length) CR.opt = 0;
+  $('#cr-opts').innerHTML = c.opts.map(([pct, term], i) => `<button class="opt" type="button" id="opt-${i}" aria-pressed="${i===CR.opt}" data-i="${i}"><b class="num">${pct}%</b><span class="num">${term} ${T[LANG].mo}</span></button>`).join("");
+  const [pct, term, init, month] = c.opts[CR.opt];
+  $('#cr-month').textContent = `${fmt(toInt(month))} ${T[LANG].som}`;
+  $('#cr-init').textContent = `${fmt(toInt(init))}`;
+  $('#cr-term').textContent = `${term} ${T[LANG].mo}`;
+  $('#cr-price').textContent = `${fmt(c.price)}`;
+}
+$('#cr-model').addEventListener('change', () => { CR.opt = 0; drawCredit(); });
+$('#cr-opts').addEventListener('click', e => { const b = e.target.closest('.opt'); if (b) { CR.opt = +b.dataset.i; drawCredit(); } });
+
+/* ---- 3D city map: orbiting camera, extruded blocks, live traffic, beacon over the showroom ---- */
+const City = (() => {
+  const cv = $('#map'), x = cv.getContext('2d'), card = cv.parentNode;
+  const tag = $('#map-tag'), street = $('#map-street'), compass = $('#map-compass');
+  let W = 0, H = 0, f = 1, t0 = performance.now(), running = false, visible = true;
+  let yaw = -0.6, drag = null, lastInteract = -1e9;
+  let seed = 20260930; const rnd = () => ((seed = (seed * 16807) % 2147483647) / 2147483647);
+  // Roads: [x1,z1,x2,z2,width,kind]
+  const ROADS = [
+    [-520, 40, 520, 40, 26, 'main'],                       // Qo'shariq ko'chasi
+    [-520,-200, 520,-200, 12], [-520, 250, 520, 250, 12],
+    [-300,-520,-300, 520, 12], [-140,-520,-140, 520, 10], [ 90,-520, 90, 520, 14], [270,-520,270,520,10], [420,-520,420,520,10],
+  ];
+  const BUILD = [], CARS = [];
+  const onRoad = (x0,z0,x1,z1) => ROADS.some(([a,b,c,d,w]) => {
+    const minx=Math.min(a,c)-w/2-6, maxx=Math.max(a,c)+w/2+6, minz=Math.min(b,d)-w/2-6, maxz=Math.max(b,d)+w/2+6;
+    return x1>minx && x0<maxx && z1>minz && z0<maxz;
+  });
+  for (let gx = -500; gx < 500; gx += 34) for (let gz = -500; gz < 500; gz += 34) {
+    const w = 18 + rnd()*12, d = 18 + rnd()*12, x0 = gx + rnd()*4, z0 = gz + rnd()*4;
+    if (Math.hypot(x0, z0) > 520) continue;
+    if (onRoad(x0, z0, x0+w, z0+d)) continue;
+    if (x0 < 60 && x0 + w > -60 && z0 < 20 && z0 + d > -70) continue;     // showroom lot
+    const far = Math.hypot(x0, z0) / 520;
+    const h = (rnd() < .08 ? 50 + rnd()*50 : 8 + rnd()*26) * (1 - far*.4);
+    BUILD.push({x0, z0, x1:x0+w, z1:z0+d, h});
+  }
+  const SHOWROOM = {x0:-50, z0:-62, x1:50, z1:12, h:22, me:true};
+  BUILD.push(SHOWROOM);
+  ROADS.forEach((r, i) => { const n = r[5] === 'main' ? 16 : 5; for (let k = 0; k < n; k++) CARS.push({r:i, p:rnd(), v:(.012 + rnd()*.02) * (k % 2 ? 1 : -1), lane:(k % 2 ? 1 : -1)}); });
+
+  function size(){
+    const b = card.getBoundingClientRect(), dpr = Math.min(devicePixelRatio || 1, 2);
+    W = b.width; H = b.height; cv.width = W*dpr; cv.height = H*dpr; x.setTransform(dpr,0,0,dpr,0,0);
+    f = Math.min(W, H*1.4) * 1.25;
+  }
+  const PITCH = .95, DIST = 1050;
+  let ca, sa, cp = Math.cos(PITCH), sp = Math.sin(PITCH);
+  function P(px, py, pz){
+    const x1 = px*ca - pz*sa, z1 = px*sa + pz*ca;
+    const yv = py*cp - z1*sp, zv = py*sp + z1*cp, d = DIST - zv;
+    return [W/2 + f*x1/d, H*.56 - f*yv/d, d];
+  }
+  function poly(pts, fill, stroke){
+    x.beginPath(); pts.forEach((q,i) => i ? x.lineTo(q[0],q[1]) : x.moveTo(q[0],q[1])); x.closePath();
+    x.fillStyle = fill; x.fill(); if (stroke) { x.strokeStyle = stroke; x.lineWidth = .6; x.stroke(); }
+  }
+  const LIGHT = [-.5, .8, .3];
+  function shade(nx, nz, base){ const l = Math.max(0, nx*LIGHT[0] + nz*LIGHT[2]) * .6 + .4; const v = Math.round(base * l); return `rgb(${v},${v},${v})`; }
+
+  function frame(now){
+    const t = (now - t0) / 1000;
+    if (!drag && now - lastInteract > 2500) yaw += .0016;
+    ca = Math.cos(yaw); sa = Math.sin(yaw);
+    x.clearRect(0,0,W,H);
+    const g = x.createRadialGradient(W/2, H*.56, 10, W/2, H*.56, Math.max(W,H)*.8);
+    g.addColorStop(0, '#161616'); g.addColorStop(1, '#070707'); x.fillStyle = g; x.fillRect(0,0,W,H);
+    // roads
+    for (const [a,b,c,d,w,k] of ROADS) {
+      const horiz = b === d, hw = w/2;
+      const q = horiz ? [[a,0,b-hw],[c,0,d-hw],[c,0,d+hw],[a,0,b+hw]] : [[a-hw,0,b],[c-hw,0,d],[c+hw,0,d],[a+hw,0,b]];
+      poly(q.map(v => P(...v)), k === 'main' ? '#262626' : '#1a1a1a');
+      if (k === 'main') {
+        x.setLineDash([6, 8]); x.lineDashOffset = -t*12; x.strokeStyle = 'rgba(255,255,255,.35)'; x.lineWidth = 1;
+        const s0 = P(a,0,b), s1 = P(c,0,d); x.beginPath(); x.moveTo(s0[0],s0[1]); x.lineTo(s1[0],s1[1]); x.stroke(); x.setLineDash([]);
+      }
+    }
+    // pulse rings around the showroom
+    for (let k = 0; k < 3; k++) {
+      const ph = ((t*.45 + k/3) % 1), r = 40 + ph*150;
+      x.beginPath();
+      for (let i = 0; i <= 48; i++) { const an = i/48*Math.PI*2, q = P(Math.cos(an)*r, 0, -25 + Math.sin(an)*r); i ? x.lineTo(q[0],q[1]) : x.moveTo(q[0],q[1]); }
+      x.strokeStyle = `rgba(255,255,255,${(1-ph)*.35})`; x.lineWidth = 1.2; x.stroke();
+    }
+    // traffic
+    x.globalCompositeOperation = 'lighter';
+    for (const c of CARS) {
+      c.p = (c.p + c.v * .016 + 1) % 1;
+      const [a,b,cc,d,w] = ROADS[c.r], horiz = b === d, off = c.lane * w * .22;
+      const px = a + (cc-a)*c.p + (horiz ? 0 : off), pz = b + (d-b)*c.p + (horiz ? off : 0);
+      const q = P(px, 1, pz), r = Math.max(.8, 1500/q[2]);
+      const col = c.v > 0 ? '255,255,255' : '255,70,70';
+      const gl = x.createRadialGradient(q[0],q[1],0,q[0],q[1],r*3.2); gl.addColorStop(0,`rgba(${col},.9)`); gl.addColorStop(1,`rgba(${col},0)`);
+      x.fillStyle = gl; x.beginPath(); x.arc(q[0],q[1],r*3.2,0,7); x.fill();
+    }
+    x.globalCompositeOperation = 'source-over';
+    // buildings, far to near
+    const list = BUILD.map(bd => ({bd, d: P((bd.x0+bd.x1)/2, 0, (bd.z0+bd.z1)/2)[2]})).sort((u,v) => v.d - u.d);
+    for (const {bd} of list) {
+      const {x0,z0,x1,z1,h,me} = bd;
+      const faces = [
+        {pts:[[x0,0,z0],[x1,0,z0],[x1,h,z0],[x0,h,z0]], n:[0,-1]},
+        {pts:[[x1,0,z0],[x1,0,z1],[x1,h,z1],[x1,h,z0]], n:[1,0]},
+        {pts:[[x1,0,z1],[x0,0,z1],[x0,h,z1],[x1,h,z1]], n:[0,1]},
+        {pts:[[x0,0,z1],[x0,0,z0],[x0,h,z0],[x0,h,z1]], n:[-1,0]},
+      ].map(fc => { const pp = fc.pts.map(v => P(...v)); return {...fc, pp, d: pp.reduce((s,q) => s+q[2], 0)/4}; }).sort((u,v) => v.d - u.d);
+      for (const fc of faces) poly(fc.pp, me ? shade(fc.n[0], fc.n[1], 235) : shade(fc.n[0], fc.n[1], 44), me ? null : 'rgba(255,255,255,.035)');
+      poly([[x0,h,z0],[x1,h,z0],[x1,h,z1],[x0,h,z1]].map(v => P(...v)), me ? '#ffffff' : '#2e2e2e', me ? null : 'rgba(255,255,255,.05)');
+    }
+    // beacon
+    const base = P(0, SHOWROOM.h, -25), top = P(0, SHOWROOM.h + 150, -25);
+    const bg = x.createLinearGradient(base[0], base[1], top[0], top[1]);
+    bg.addColorStop(0, 'rgba(255,255,255,.9)'); bg.addColorStop(1, 'rgba(255,255,255,0)');
+    x.strokeStyle = bg; x.lineWidth = 3; x.beginPath(); x.moveTo(base[0], base[1]); x.lineTo(top[0], top[1]); x.stroke();
+    const tg = P(0, SHOWROOM.h + 120, -25); tag.style.transform = `translate(${tg[0]}px, ${tg[1]}px) translate(-50%,-100%)`;
+    const st = P(-330, 0, 40); street.style.transform = `translate(${Math.min(W-80, Math.max(80, st[0]))}px, ${Math.min(H-70, Math.max(40, st[1]))}px) translate(-50%,-50%)`;
+    compass.style.transform = `rotate(${-yaw}rad)`;
+    if (running && visible) requestAnimationFrame(frame);
+  }
+  function start(){ if (running) return; running = true; requestAnimationFrame(frame); }
+  cv.addEventListener('pointerdown', e => { drag = {x: e.clientX, yaw}; cv.setPointerCapture(e.pointerId); });
+  cv.addEventListener('pointermove', e => { if (drag) { yaw = drag.yaw + (e.clientX - drag.x) * .006; lastInteract = performance.now(); if (!running || !visible) frame(performance.now()); } });
+  const end = () => { drag = null; lastInteract = performance.now(); };
+  cv.addEventListener('pointerup', end); cv.addEventListener('pointercancel', end);
+  size();
+  if (REDUCED) { frame(performance.now()); }
+  else {
+    if ('IntersectionObserver' in window) new IntersectionObserver(([e]) => { visible = e.isIntersecting; if (visible) { running = false; start(); } }).observe(card);
+    start();
+  }
+  return { resize(){ size(); if (REDUCED || !visible) frame(performance.now()); } };
+})();
+function drawMap(){ City.resize(); }
+
+/* ---- language ---- */
+function setLang(l){
+  LANG = l; app.dataset.lang = l; document.documentElement.lang = l;
+  document.querySelectorAll('.lang button').forEach(b => b.setAttribute('aria-pressed', b.dataset.l === l));
+  try { localStorage.setItem('aas-lang', l); } catch(e) {}
+  renderGrid(); renderPrices(); fillCreditSelect(); drawCredit();
+  if (dlg.open) drawSheet();
+  hydrate();
+}
+document.querySelectorAll('.lang button').forEach(b => b.addEventListener('click', () => setLang(b.dataset.l)));
+
+/* ---- copy buttons ---- */
+document.querySelectorAll('.copy').forEach(b => b.addEventListener('click', async () => {
+  const txt = b.dataset.copy, span = b.querySelector(LANG==='uz' ? '.uz' : '.ru'), old = span.textContent;
+  try { await navigator.clipboard.writeText(txt); span.textContent = LANG==='uz' ? 'Nusxalandi' : 'Скопировано'; }
+  catch(e) { const r = document.createRange(); r.selectNodeContents(b.previousSibling && b.previousSibling.nodeType===3 ? b.parentNode : b.previousElementSibling); const s = getSelection(); s.removeAllRanges(); s.addRange(r); }
+  setTimeout(() => span.textContent = old, 1600);
+}));
+
+/* ---- videos: respect reduced motion ---- */
+if (matchMedia('(prefers-reduced-motion: reduce)').matches) document.querySelectorAll('video').forEach(v => { v.removeAttribute('autoplay'); v.pause(); });
+
+/* ---- hero: long-exposure headlight trails ---- */
+(function trails(){
+  const cv = $('#trails'), x = cv.getContext('2d');
+  let W, H, lines = [], run = true, t0 = performance.now();
+  function size(){
+    const r = cv.getBoundingClientRect(), d = Math.min(devicePixelRatio || 1, 2);
+    W = r.width; H = r.height; cv.width = W * d; cv.height = H * d; x.setTransform(d,0,0,d,0,0);
+    lines = Array.from({length: 7}, (_, i) => {
+      const warm = i % 3 !== 2;               // gold headlights, some red tail-lights
+      const y = H * (.35 + .6 * Math.random());
+      return {y, amp: 30 + Math.random()*70, k: .002 + Math.random()*.002, ph: Math.random()*6.28,
+              w: .6 + Math.random()*1.2, sp: .025 + Math.random()*.05, len: .18 + Math.random()*.3, off: Math.random(),
+              col: warm ? [255,255,255] : [150,150,150]};
+    });
+  }
+  function frame(now){
+    if (!run) return;
+    const t = (now - t0) / 1000;
+    x.clearRect(0,0,W,H); x.globalCompositeOperation = 'lighter';
+    for (const l of lines){
+      const head = ((l.off + t * l.sp) % 1.4) - .2, tail = head - l.len;
+      const steps = 40;
+      for (let s = 0; s < steps; s++){
+        const a0 = tail + (head - tail) * s / steps, a1 = tail + (head - tail) * (s+1) / steps;
+        const X0 = a0 * W, X1 = a1 * W;
+        const Y0 = l.y - Math.sin(X0 * l.k + l.ph) * l.amp - (X0 / W) * H * .25;
+        const Y1 = l.y - Math.sin(X1 * l.k + l.ph) * l.amp - (X1 / W) * H * .25;
+        const al = (s / steps) ** 2 * .22;
+        x.strokeStyle = `rgba(${l.col[0]},${l.col[1]},${l.col[2]},${al})`;
+        x.lineWidth = l.w; x.beginPath(); x.moveTo(X0,Y0); x.lineTo(X1,Y1); x.stroke();
+      }
+    }
+    requestAnimationFrame(frame);
+  }
+  size(); addEventListener('resize', size);
+  if (REDUCED) { t0 -= 4000; run = true; frame(performance.now()); run = false; return; }
+  if ('IntersectionObserver' in window) new IntersectionObserver(([e]) => { const was = run; run = e.isIntersecting; if (run && !was) requestAnimationFrame(frame); }).observe(cv);
+  requestAnimationFrame(frame);
+})();
+
+$('#yr').textContent = new Date().getFullYear();
+setLang(LANG);
+drawMap();
+addEventListener('resize', drawMap);
+matchMedia('(prefers-color-scheme: dark)').addEventListener('change', drawMap);
+new MutationObserver(drawMap).observe(document.documentElement, {attributes:true, attributeFilter:['data-theme']});
+
+(function(){
+  const b3 = document.getElementById('mt-3d'), br = document.getElementById('mt-real'), fr = document.getElementById('realmap'), card = document.querySelector('.mapcard');
+  function show(real){
+    b3.setAttribute('aria-pressed', !real); br.setAttribute('aria-pressed', real);
+    if (real && !fr.src) fr.src = fr.dataset.src;
+    fr.hidden = !real; card.hidden = real;
+    if (!real) drawMap();
+  }
+  b3.addEventListener('click', () => show(false)); br.addEventListener('click', () => show(true));
+})();
+</script>
+
+</html>
