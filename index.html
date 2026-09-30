@@ -135,6 +135,13 @@ svg.silh{display:block;width:100%;height:auto;overflow:visible}
 .plate{--pa:#ffffff;--pb:#e9ebee;background:radial-gradient(120% 90% at 50% 35%,var(--pa) 55%,var(--pb));border-radius:12px;display:grid;place-items:center;overflow:hidden}
 .plate img{width:100%;height:100%;object-fit:contain;display:block;mix-blend-mode:multiply}
 .car .pic.plate{aspect-ratio:16/9;padding:6px}
+.soon{aspect-ratio:16/9;border-radius:12px;display:grid;place-items:center;background:radial-gradient(120% 90% at 50% 30%,#232323,#0d0d0d);border:1px solid var(--line);overflow:hidden}
+.sheet .big.soon{aspect-ratio:16/10}
+.soonbox{display:flex;flex-direction:column;align-items:center;gap:2px;color:#fff;text-align:center}
+.soonbox svg{color:var(--c-gold);margin-bottom:4px}
+.soonbox b{font-family:var(--f-display);font-weight:600;font-size:clamp(26px,4vw,40px);letter-spacing:.22em;line-height:1;background:linear-gradient(180deg,#fff,#9a9a9a);-webkit-background-clip:text;background-clip:text;color:transparent}
+.soonbox span{font-size:12px;letter-spacing:.3em;color:var(--c-blue);font-weight:700}
+.soonbox small{margin-top:8px;font-size:12px;color:var(--muted)}
 .sheet .big.plate{aspect-ratio:16/10;padding:10px}
 .sheet .big.plate.int img{object-fit:cover;mix-blend-mode:normal}
 .sheet .big.plate.int{padding:0}
@@ -578,7 +585,7 @@ const META = {
 };
 const BADGE = {
   tahoe:[ "🔥", {uz:"Premium", ru:"Премиум"} ], suburban:[ "🔥", {uz:"Premium", ru:"Премиум"} ], traverse:[ "🔥", {uz:"7 o'rin", ru:"7 мест"} ],
-  equinox:[ "⚡", {uz:"Gibrid", ru:"Гибрид"} ],
+  equinox:[ "✨", {uz:"Gibrid", ru:"Гибрид"} ],
   onix:[ "💯", {uz:"0% ustama", ru:"0% переплаты"} ], tracker2:[ "💯", {uz:"0% ustama", ru:"0% переплаты"} ]
 };
 const SPECS = {
@@ -632,6 +639,12 @@ const SHAPES = {
   pickup:{body:"M60,120 C60,108 64,100 72,96 L92,60 C98,44 108,34 128,32 L180,32 C188,32 192,38 192,46 L192,86 L348,86 C352,86 354,88 354,92 L354,124 C354,129 350,132 344,132 L318,132 A28,28 0 0 0 262,132 L146,132 A28,28 0 0 0 90,132 L66,132 C62,132 60,128 60,124 Z",
     glass:["M96,74 L108,48 C112,42 118,40 128,40 L182,40 L182,74 Z"], wheels:[118,290], r:22, lamp:[68,108], tail:[351,100], bed:true},
 };
+function soon(m){
+  const [a, ...rest] = m.name.split(' ');
+  return `<div class="soonbox"><svg viewBox="0 0 24 24" width="30" height="30" aria-hidden="true"><path d="M13 2 4 14h6l-1 8 9-12h-6z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+    <b>${a.toUpperCase()}</b><span>${rest.join(' ')}</span>
+    <small>${LANG==='uz' ? "Rasm tez orada · salonda ko'ring" : "Фото скоро · смотрите в салоне"}</small></div>`;
+}
 function silhouette(shape, color, label){
   const s = SHAPES[shape];
   const wheels = s.wheels.map(cx => `<circle cx="${cx}" cy="132" r="${s.r}" fill="var(--tire)"/><circle cx="${cx}" cy="132" r="${s.r*.55}" fill="var(--rim)"/><circle cx="${cx}" cy="132" r="${s.r*.18}" fill="var(--tire)"/>`).join("");
@@ -661,7 +674,7 @@ function renderGrid(){
     return `<button class="car" type="button" data-model="${k}" id="car-${k}">
       <span class="type">${m.type[LANG]}</span>
       <h3>${m.name}</h3>
-      <div class="pic${PH[k][0].ext ? ' plate' : ''}">${badge}${PH[k][0].ext ? photo(PH[k][0].ext, m.name) : silhouette(m.shape, col, m.name)}</div>
+      <div class="pic${PH[k][0].ext ? ' plate' : ' soon'}">${badge}${PH[k][0].ext ? photo(PH[k][0].ext, m.name) : soon(m)}</div>
       <span class="spec">${m.spec[0]} · ${m.spec[1]} ${T[LANG].hp} · ${m.spec[2]}</span>
       <span class="foot"><span class="price num">${LANG==='uz' ? `${fmt(mp)} so'mdan` : `от ${fmt(mp)} сум`}</span>
       <span class="trims">${T[LANG].trims(trims.length)}</span></span>
@@ -712,7 +725,7 @@ function drawSheet(){
   let src = ph.ext;
   if (S.view === 'int' && ph.int) src = ph.int;
   else if (S.color >= 0) src = cols[S.color].src;
-  $('#sh-pic').innerHTML = src ? `<div class="big plate${S.view==='int' ? ' int' : ''}">${photo(src, m.name + ' ' + t.name)}</div>` : silhouette(m.shape, colorHex(cols[0] && cols[0].n), m.name);
+  $('#sh-pic').innerHTML = src ? `<div class="big plate${S.view==='int' ? ' int' : ''}">${photo(src, m.name + ' ' + t.name)}</div>` : `<div class="big soon">${soon(m)}</div>`;
   document.querySelectorAll('.views button').forEach(b => b.setAttribute('aria-pressed', b.dataset.v === S.view));
   $('#v-int').hidden = !ph.int;
   $('#sh-sw').innerHTML = cols.map((c,i) => `<button class="sw" type="button" title="${c.n}" aria-label="${c.n}" aria-pressed="${i===S.color && S.view==='ext'}" data-i="${i}" style="background:${colorHex(c.n)}"></button>`).join("");
